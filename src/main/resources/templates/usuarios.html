@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Dni</th>
+    </tr>
+    <tr th:each="usuario :${listaUsuarios}">
+        <td th:text="${usuario.idcliente}">id</td>
+        <td th:text="${usuario.nombre}">nombre</td>
+        <td th:text="${usuario.dni}"> Dni </td>
+        <td th:id="${usuario.idcliente}" class="button1" name="button1" style="cursor:pointer" OnClick="javascript:editar(id)">Editar</td>
+    </tr>
+</table>
+</body>
+</html>
+
+<script type="text/javascript">
+    function editar(id){
+        window.location = "usuarios/editar?idcliente=" + id;
+    }
+</script>
