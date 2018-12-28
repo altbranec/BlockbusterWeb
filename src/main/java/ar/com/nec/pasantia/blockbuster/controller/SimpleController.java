@@ -20,9 +20,4 @@ public class SimpleController {
         return "home";
     }
 
-   /* @GetMapping("/usuarios")
-    public String usuariosPage(Model model) {
-       // model.addAttribute("listaUsuarios", new ClienteController().findAll());
-        return "usuarios";
-    }*/
 }

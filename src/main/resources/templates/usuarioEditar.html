@@ -39,8 +39,8 @@
                 $("#result").html(data+
                     " link: <a href='"+url+"'>"+url+"</a>");
             },
-            error: function(xhr, status, error){
-                alert(error + dni + nombre + id);
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                window.location="/usuarios";
             }
         });
     });

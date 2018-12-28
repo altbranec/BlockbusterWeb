@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Usuarios</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
 </head>
 <body>
 <table>
@@ -15,16 +18,42 @@
         <td th:text="${usuario.idcliente}">id</td>
         <td th:text="${usuario.nombre}">nombre</td>
         <td th:text="${usuario.dni}"> Dni</td>
-        <td th:id="${usuario.idcliente}" class="button1" name="button1" style="cursor:pointer"
+        <td th:id="${usuario.idcliente}" class="button1" name="editar" style="cursor:pointer"
             OnClick="javascript:editar(id)">Editar
+        </td>
+        <td th:id="${usuario.idcliente}" class="button1" name="eliminar" style="cursor:pointer"
+            OnClick="javascript:eliminar(id)">Eliminar
         </td>
     </tr>
 </table>
+<a class="button1" name="crear" style="cursor:pointer"
+    OnClick="javascript:crear()">Crear
+</a>
 </body>
 </html>
 
 <script type="text/javascript">
     function editar(id) {
         window.location = "usuarios/editar?idcliente=" + id;
+    }
+    function eliminar(id) {
+
+        var url = '/usuarios/'+id;
+        var jsonString = JSON.stringify({idcliente: id});
+        console.log(jsonString);
+        $.ajax({
+            type: "DELETE",
+            url: url,
+            data: jsonString,
+            success: function(msg){
+                location.reload();
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                location.reload();
+            }
+        });
+    }
+    function crear(id) {
+
     }
 </script>
