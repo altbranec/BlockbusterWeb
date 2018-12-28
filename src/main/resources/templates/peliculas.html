@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Peliculas</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>IdPelicula</th>
+        <th>Nombre</th>
+    </tr>
+    <tr th:each="pelicula :${listaPeliculas}">
+        <td th:text="${pelicula.idpeliculas}">IdPelicula</td>
+        <td th:text="${pelicula.nombre}">Nombre</td>
+        <td th:id="${pelicula.idpeliculas}" class="button1" name="button1" style="cursor:pointer"
+            OnClick="javascript:editar(id)">Editar
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+
+<script type="text/javascript">
+    function editar(id) {
+        window.location = "peliculas/editar?idpeliculas=" + id;
+    }
+</script>
+</body>
+</html>

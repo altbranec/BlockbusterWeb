@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+</head>
+
+
+<form id="editarForm">
+    IdPelicula:<span id="id" name="id" type="text" th:text="${pelicula.idpelicula}"/><br>
+    Nombre: <input id="nombre" type="text" name="nombre" th:value="${pelicula.nombre}"/><br>
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
+
+<script>
+    $("#editarForm").submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var id = [[${pelicula.idpelicula}]];
+        /*var id = $("id").text();*/
+        var url = '/peliculas/' + id;
+        var nombre = form.find('input[name="nombre"]').val();
+        var jsonString = JSON.stringify({id: id, nombre: nombre});
+        console.log(jsonString);
+
+        $.ajax({
+            type: 'PUT',
+            url: url,
+            contentType: 'application/json',
+            data: jsonString,
+            success: function (data, status, xhr) {
+                $("#result").html(data +
+                    " link: <a href='" + url + "'>" + url + "</a>");
+                alert(error + nombre + id);
+            },
+            error: function (xhr, status, error) {
+                alert(error + nombre + id);
+            }
+        });
+    });
+
+</script>

@@ -28,15 +28,11 @@ public class ClienteController {
     }
     @GetMapping("editar")
     public String editarUsuariosPage(@RequestParam("idcliente") int idcliente, Model model ) {
-        List<ClienteEntity> usuarios = new ArrayList<ClienteEntity>();
-        Optional<ClienteEntity> cliente = repoClientes.findById(idcliente);
-
-        usuarios.add(cliente.get());
-        model.addAttribute("usuarios", usuarios);
+        model.addAttribute("usuario", repoClientes.findById(idcliente).get());
         return "usuarioEditar";
     }
 
-    @GetMapping("/dni/{bookTitle}")
+    @GetMapping("/dni/{dni}")
     public List findByDni(@PathVariable int dni) {
         return repoClientes.findClienteEntityByDni(dni);
     }
@@ -44,7 +40,7 @@ public class ClienteController {
     @GetMapping("/{id}")
     public ClienteEntity findOne(@PathVariable int id) {
         return repoClientes.findById(id)
-                .orElseThrow(ClienteNotFoundException::new); //crear la exception
+                .orElseThrow(ClienteNotFoundException::new); 
     }
 
     @PostMapping

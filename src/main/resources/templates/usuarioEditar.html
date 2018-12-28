@@ -9,8 +9,8 @@
 </head>
 
 
-<form id="editarForm" th:each="usuario :${usuarios}">
-    IDCliente: <a id="id" name = "id" type="text" th:text="${usuario.idcliente}"/><br>
+<form id="editarForm" >
+    IDCliente:<span id="id" name = "id" type="text" th:text="${usuario.idcliente}"/><br>
     Nombre: <input id="nombre" type="text" name="nombre" th:value="${usuario.nombre}"/><br>
     DNI: <input id="dni" type="text" name="dni" th:value="${usuario.dni}"/><br>
     <input type="submit" value="Submit"/>
@@ -18,32 +18,29 @@
 </body>
 </html>
 
-<!--
-<script type="text/javascript">
-    function editar(id,nombre,dni){
-        window.location = "usuarios/editar?idcliente=" + id + "&nombre=" + nombre + "&dni=" + dni;
-    }
-</script>-->
+
 <script>
     $("#editarForm").submit(function(event){
         event.preventDefault();
         var form = $(this);
-        var id = form.find('input[name="id"]').val();
+        var id = [[${usuario.idcliente}]];
         var url = '/usuarios/'+id;
         var nombre = form.find('input[name="nombre"]').val();
         var dni = form.find('input[name="dni"]').val();
+        var jsonString = JSON.stringify({idcliente: id, nombre: nombre, dni: dni});
+        console.log(jsonString);
 
         $.ajax({
             type : 'PUT',
             url : url,
-            contentType: 'application/x-www-form-urlencoded',
-            data : "dni="+dni+"&nombre="+nombre,
+            contentType: 'application/json',
+            data : jsonString,
             success : function(data, status, xhr){
                 $("#result").html(data+
                     " link: <a href='"+url+"'>"+url+"</a>");
             },
             error: function(xhr, status, error){
-                alert(error);
+                alert(error + dni + nombre + id);
             }
         });
     });
