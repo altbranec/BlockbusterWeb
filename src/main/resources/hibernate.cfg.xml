@@ -4,12 +4,14 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-      <!--  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/blockbusterweb?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
-        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
-        <property name="hbm2ddl.auto">update</property>-->
+        <property name="connection.url">jdbc:mysql://localhost:3306/blockbusterweb</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!--  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+          <property name="connection.url">jdbc:mysql://localhost:3306/blockbusterweb?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
+          <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+          <property name="hibernate.connection.username">root</property>
+          <property name="hibernate.connection.password">root</property>
+          <property name="hbm2ddl.auto">update</property>-->
 
 
         <mapping class="ar.com.nec.pasantia.blockbuster.entities.AlquileresEntity"/>

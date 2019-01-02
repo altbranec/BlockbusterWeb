@@ -12,6 +12,8 @@ public class AlquileresEntity {
     private Date fechadevuelto;
     private int diasalquilado;
     private byte devuelto;
+    private PeliculasEntity peliculasByIdpelicula;
+    private ClienteEntity clienteByIdcliente;
 
     @Id
     @Column(name = "idalquileres", nullable = false)
@@ -78,5 +80,25 @@ public class AlquileresEntity {
     @Override
     public int hashCode() {
         return Objects.hash(idalquileres, fechaalquiler, fechadevuelto, diasalquilado, devuelto);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "idpelicula", referencedColumnName = "idpeliculas", nullable = false)
+    public PeliculasEntity getPeliculasByIdpelicula() {
+        return peliculasByIdpelicula;
+    }
+
+    public void setPeliculasByIdpelicula(PeliculasEntity peliculasByIdpelicula) {
+        this.peliculasByIdpelicula = peliculasByIdpelicula;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "idcliente", referencedColumnName = "idcliente", nullable = false)
+    public ClienteEntity getClienteByIdcliente() {
+        return clienteByIdcliente;
+    }
+
+    public void setClienteByIdcliente(ClienteEntity clienteByIdcliente) {
+        this.clienteByIdcliente = clienteByIdcliente;
     }
 }

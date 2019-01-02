@@ -9,10 +9,9 @@
 </head>
 
 
-<form id="editarForm" >
-    IDCliente:<span id="id" name = "id" type="text" th:text="${usuario.idcliente}"/><br>
-    Nombre: <input id="nombre" type="text" name="nombre" th:value="${usuario.nombre}"/><br>
-    DNI: <input id="dni" type="text" name="dni" th:value="${usuario.dni}"/><br>
+<form id="crearForm" >
+    Nombre: <input id="nombre" type="text" name="nombre" /><br>
+    DNI: <input id="dni" type="text" name="dni"/><br>
     <input type="submit" value="Submit"/>
 </form>
 </body>
@@ -20,18 +19,17 @@
 
 
 <script>
-    $("#editarForm").submit(function(event){
+    $("#crearForm").submit(function(event){
         event.preventDefault();
         var form = $(this);
-        var id = [[${usuario.idcliente}]];
         var url = '/usuarios';
         var nombre = form.find('input[name="nombre"]').val();
         var dni = form.find('input[name="dni"]').val();
-        var jsonString = JSON.stringify({idcliente: id, nombre: nombre, dni: dni});
+        var jsonString = JSON.stringify({ nombre: nombre, dni: dni});
         console.log(jsonString);
 
         $.ajax({
-            type : 'PUT',
+            type : 'POST',
             url : url,
             contentType: 'application/json',
             data : jsonString,

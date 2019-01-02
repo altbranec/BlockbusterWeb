@@ -9,27 +9,24 @@
 </head>
 
 
-<form id="editarForm">
-    IdPelicula:<span id="id" name="id" type="text" th:text="${pelicula.idpeliculas}"/><br>
-    Nombre: <input id="nombre" type="text" name="nombre" th:value="${pelicula.nombre}"/><br>
+<form id="crearForm">
+    Nombre: <input id="nombre" type="text" name="nombre"/><br>
     <input type="submit" value="Submit"/>
 </form>
 </body>
 </html>
 
 <script>
-    $("#editarForm").submit(function (event) {
+    $("#crearForm").submit(function (event) {
         event.preventDefault();
         var form = $(this);
-        var idpelicula = [[${pelicula.idpeliculas}]];
-        var idgenero = [[${pelicula.generosByIdgenero.idgenero}]];
-        var url = '/peliculas';
+        var url = '/usuarios';
         var nombre = form.find('input[name="nombre"]').val();
-        var jsonString = JSON.stringify({idpeliculas: idpelicula, idgenero: idgenero, nombre: nombre});
+        var jsonString = JSON.stringify({nombre: nombre});
         console.log(jsonString);
 
         $.ajax({
-            type: 'PUT',
+            type: 'POST',
             url: url,
             contentType: 'application/json',
             data: jsonString,
@@ -37,7 +34,7 @@
                 window.location="/peliculas";
             },
             error: function (xhr, status, error) {
-                alert(error + nombre + id);
+                alert(error);
             }
         });
     });

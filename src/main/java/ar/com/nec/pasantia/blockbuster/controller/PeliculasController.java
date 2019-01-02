@@ -27,14 +27,15 @@ public class PeliculasController {
         return "peliculas";
     }
 
+    @GetMapping("crear")
+    public String crearPelicula(Model model) {
+        return "peliculaCrear";
+    }
+
     @GetMapping("editar")
     public String editarPeliculasPage(@RequestParam("idpeliculas") int idpeliculas, Model model) {
-        List<PeliculasEntity> peliculas = new ArrayList<PeliculasEntity>();
-        Optional<PeliculasEntity> film = repoPeliculas.findById(idpeliculas);
-
-        peliculas.add(film.get());
-        model.addAttribute("peliculas", peliculas);
-        return "peliculasEditar";
+        model.addAttribute("pelicula", repoPeliculas.findById(idpeliculas).get());
+        return "peliculaEditar";
     }
 
     @GetMapping("/idpeliculas/{bookTitle}")
@@ -61,13 +62,13 @@ public class PeliculasController {
         repoPeliculas.deleteById(id);
     }
 
-    @PutMapping("/{id}")
-    public PeliculasEntity updatePelicula(@RequestBody PeliculasEntity film, @PathVariable int id) throws PeliculaIdMismatchException {
-        if (film.getIdpeliculas() != id) {
-            throw new PeliculaIdMismatchException();
+    @PutMapping
+    public PeliculasEntity updatePelicula(@RequestBody PeliculasEntity film) {
+        //TODO arreglar genero para pelicula
+        if(!repoPeliculas.findById(film.getIdpeliculas()).isPresent()){
+            throw new PeliculaNotFoundException();
+        }else{
+            return repoPeliculas.save(film);
         }
-        repoPeliculas.findById(id)
-                .orElseThrow(PeliculaNotFoundException::new);
-        return repoPeliculas.save(film);
     }
 }

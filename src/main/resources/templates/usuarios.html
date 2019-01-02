@@ -27,7 +27,7 @@
     </tr>
 </table>
 <a class="button1" name="crear" style="cursor:pointer"
-    OnClick="javascript:crear()">Crear
+    href="/usuarios/crear">Crear
 </a>
 </body>
 </html>
@@ -48,12 +48,7 @@
             success: function(msg){
                 location.reload();
             },
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                location.reload();
-            }
-        });
-    }
-    function crear(id) {
 
+        });
     }
 </script>

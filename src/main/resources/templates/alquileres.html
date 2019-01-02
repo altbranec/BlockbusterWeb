@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Alquileres</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <th>IdAlquiler</th>
+        <th>FechaAlquilado</th>
+        <th>FechaDevolucion</th>
+        <th>DiasAlquilados</th>
+        <th>Cliente</th>
+        <th>Pelicula</th>
+
+    </tr>
+    <tr th:each="alquileres :${listaAlquileres}">
+        <td th:text="${alquileres.idalquileres}">idAlquiler</td>
+        <td th:text="${alquileres.fechaalquiler}">fechaAlquiler</td>
+        <td th:text="${alquileres.fechadevuelto}">fechaDevuelto</td>
+        <td th:text="${alquileres.diasalquilado}">diasAlquilado</td>
+        <td th:text="${alquileres.clienteByIdcliente.nombre}">cliente</td>
+        <td th:text="${alquileres.peliculasByIdpelicula.nombre}">pelicula</td>
+        <td th:id="${alquileres.idalquileres}" class="button1" name="editar" style="cursor:pointer"
+            OnClick="javascript:editar(id)">Editar
+        </td>
+        <td th:id="${alquileres.idalquileres}" class="button1" name="devolver" style="cursor:pointer"
+            OnClick="javascript:devolver(id)">Devolver
+        </td>
+    </tr>
+</table>
+<a class="button1" name="crear" style="cursor:pointer"
+   href="/alquileres/crear">Crear
+</a>
+</body>
+</html>
+
+<script type="text/javascript">
+    function editar(id) {
+        window.location = "alquileres/editar?idalquiler=" + id;
+    }
+
+    function devolver(id) {
+
+        var url = '/alquileres/' + id;
+        var jsonString = JSON.stringify({idalquiler: id});
+        console.log(jsonString);
+        $.ajax({
+            type: "DELETE",
+            url: url,
+            data: jsonString,
+            success: function (msg) {
+                location.reload();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                location.reload();
+            }
+        });
+    }
+</script>

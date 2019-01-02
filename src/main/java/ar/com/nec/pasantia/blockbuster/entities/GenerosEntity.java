@@ -1,6 +1,7 @@
 package ar.com.nec.pasantia.blockbuster.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -8,6 +9,7 @@ import java.util.Objects;
 public class GenerosEntity {
     private int idgeneros;
     private String nombre;
+    private Collection<PeliculasEntity> peliculasByIdgeneros;
 
     @Id
     @Column(name = "idgeneros", nullable = false)
@@ -41,5 +43,14 @@ public class GenerosEntity {
     @Override
     public int hashCode() {
         return Objects.hash(idgeneros, nombre);
+    }
+
+    @OneToMany(mappedBy = "generosByIdgenero")
+    public Collection<PeliculasEntity> getPeliculasByIdgeneros() {
+        return peliculasByIdgeneros;
+    }
+
+    public void setPeliculasByIdgeneros(Collection<PeliculasEntity> peliculasByIdgeneros) {
+        this.peliculasByIdgeneros = peliculasByIdgeneros;
     }
 }

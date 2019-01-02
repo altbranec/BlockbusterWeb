@@ -10,10 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @Controller
 @RequestMapping("/usuarios")
@@ -26,15 +24,15 @@ public class ClienteController {
         model.addAttribute("listaUsuarios", repoClientes.findAll());
         return "usuarios";
     }
+    @GetMapping("crear")
+    public String crearUsuario(Model model) {
+        return "usuarioCrear";
+    }
+
     @GetMapping("editar")
     public String editarUsuariosPage(@RequestParam("idcliente") int idcliente, Model model ) {
         model.addAttribute("usuario", repoClientes.findById(idcliente).get());
         return "usuarioEditar";
-    }
-
-    @GetMapping("/dni/{dni}")
-    public List findByDni(@PathVariable int dni) {
-        return repoClientes.findClienteEntityByDni(dni);
     }
 
     @GetMapping("/{id}")
@@ -50,19 +48,20 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable int id) {
         repoClientes.findById(id)
                 .orElseThrow(ClienteNotFoundException::new);
         repoClientes.deleteById(id);
     }
 
-    @PutMapping("/{id}")
-    public ClienteEntity updateCliente(@RequestBody ClienteEntity cliente, @PathVariable int id) {
-        if (cliente.getIdcliente() != id) {
-            throw new ClienteIdMismatchException();
+    @PutMapping
+    public ClienteEntity updateCliente(@RequestBody ClienteEntity cliente) {
+        if(!repoClientes.findById(cliente.getIdcliente()).isPresent()){
+            throw new ClienteNotFoundException();
+        }else{
+            return repoClientes.save(cliente);
         }
-        repoClientes.findById(id)
-                .orElseThrow(ClienteNotFoundException::new);
-        return repoClientes.save(cliente);
+
     }
 }
