@@ -3,24 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Peliculas</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: #1b26f2;
+            color: white;
+        }
+    </style>
+    <style>
+        button {
+            background-color: #1b26f2;
+            border: none;
+            color: white;
+            padding: 10px 27px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+    </style>
 </head>
+
 <body>
 <table>
     <tr>
         <th>IdPelicula</th>
         <th>Nombre</th>
+        <th>Genero</th>
     </tr>
     <tr th:each="pelicula :${listaPeliculas}">
         <td th:text="${pelicula.idpeliculas}">IdPelicula</td>
         <td th:text="${pelicula.nombre}">Nombre</td>
+        <td th:text="${pelicula.generosByIdgenero.nombre}">Genero</td>
         <td th:id="${pelicula.idpeliculas}" class="button1" name="button1" style="cursor:pointer"
             OnClick="javascript:editar(id)">Editar
         </td>
     </tr>
 </table>
-<a class="button1" name="crear" style="cursor:pointer"
+<button>
+<a class="button1" name="crear" style="cursor:pointer;color: #f2f2f2"
    href="/peliculas/crear">Crear
 </a>
+</button>
 </body>
 </html>
 

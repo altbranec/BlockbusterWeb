@@ -3,6 +3,7 @@ package ar.com.nec.pasantia.blockbuster.controller;
 import ar.com.nec.pasantia.blockbuster.entities.PeliculasEntity;
 import ar.com.nec.pasantia.blockbuster.exception.PeliculaIdMismatchException;
 import ar.com.nec.pasantia.blockbuster.exception.PeliculaNotFoundException;
+import ar.com.nec.pasantia.blockbuster.repository.GenerosRepository;
 import ar.com.nec.pasantia.blockbuster.repository.PeliculasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,8 @@ public class PeliculasController {
 
     @Autowired
     private PeliculasRepository repoPeliculas;
+    @Autowired
+    private GenerosRepository generosRepository;
 
     @GetMapping
     public String peliculasPage(Model model) {
@@ -29,12 +32,14 @@ public class PeliculasController {
 
     @GetMapping("crear")
     public String crearPelicula(Model model) {
+        model.addAttribute("generos", generosRepository.findAll());
         return "peliculaCrear";
     }
 
     @GetMapping("editar")
     public String editarPeliculasPage(@RequestParam("idpeliculas") int idpeliculas, Model model) {
         model.addAttribute("pelicula", repoPeliculas.findById(idpeliculas).get());
+        model.addAttribute("generos", generosRepository.findAll());
         return "peliculaEditar";
     }
 

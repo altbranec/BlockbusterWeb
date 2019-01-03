@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/alquileres")
@@ -20,13 +20,20 @@ public class AlquileresController {
 
     @GetMapping
     public String alquileresPage(Model model) {
-        model.addAttribute("listaAlquileres", repoAlquileres.findAll());
+        List<AlquileresEntity> listAlqui = (List<AlquileresEntity>) repoAlquileres.findAll();
+        List<AlquileresEntity> alquiMostrar = new ArrayList<AlquileresEntity>();
+        for (AlquileresEntity alquiler : listAlqui) {
+            if (alquiler.getDevuelto()) {
+                alquiMostrar.add(alquiler);
+            }
+        }
+        model.addAttribute("listaAlquileres", alquiMostrar);
         return "alquileres";
     }
 
     @GetMapping("editar")
     public String editarAlquileresPage(@RequestParam("idalquiler") int idAlquiler, Model model) {
-        model.addAttribute("Alquiler", repoAlquileres.findById(idAlquiler).get());
+        model.addAttribute("alquileres", repoAlquileres.findById(idAlquiler).get());
         return "alquileresEditar";
     }
 
@@ -51,7 +58,7 @@ public class AlquileresController {
     public void delete(@PathVariable int id) {
         AlquileresEntity alquiler = repoAlquileres.findById(id)
                 .orElseThrow(AlquilerNotFoundException::new);
-        alquiler.setDevuelto((byte) 0);
+        alquiler.setDevuelto(false);
         repoAlquileres.save(alquiler);
     }
 

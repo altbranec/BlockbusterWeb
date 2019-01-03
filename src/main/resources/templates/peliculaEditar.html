@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,7 +10,12 @@
 
 
 <form id="editarForm">
-    IdPelicula:<span id="id" name="id" type="text" th:text="${pelicula.idpeliculas}"/><br>
+    IdPelicula:<span id="idpeli" name="idpeli" type="text" th:text="${pelicula.idpeliculas}"/><br>
+    Genero:
+    <select id="selectGenero" >
+        <option th:each="genero : ${generos}" th:selected="${pelicula.generosByIdgenero.idgeneros == genero.idgeneros}" th:value="${genero.idgeneros}" th:text="${genero.nombre}">genero</option>
+    </select>
+    <br>
     Nombre: <input id="nombre" type="text" name="nombre" th:value="${pelicula.nombre}"/><br>
     <input type="submit" value="Submit"/>
 </form>
@@ -21,11 +26,18 @@
     $("#editarForm").submit(function (event) {
         event.preventDefault();
         var form = $(this);
-        var idpelicula = [[${pelicula.idpeliculas}]];
-        var idgenero = [[${pelicula.generosByIdgenero.idgenero}]];
+        var selectGen = document.getElementById('selectGenero').value;
         var url = '/peliculas';
-        var nombre = form.find('input[name="nombre"]').val();
-        var jsonString = JSON.stringify({idpeliculas: idpelicula, idgenero: idgenero, nombre: nombre});
+        var pelicula =
+            {
+                "idpeliculas": [[${pelicula.idpeliculas}]],
+                "nombre": form.find('input[name="nombre"]').val(),
+                "generosByIdgenero": {
+                    "idgeneros": selectGen,
+                }
+            }
+
+        var jsonString = JSON.stringify(pelicula);
         console.log(jsonString);
 
         $.ajax({
@@ -34,11 +46,8 @@
             contentType: 'application/json',
             data: jsonString,
             success: function (data, status, xhr) {
-                window.location="/peliculas";
+                window.location = "/peliculas";
             },
-            error: function (xhr, status, error) {
-                alert(error + nombre + id);
-            }
         });
     });
 

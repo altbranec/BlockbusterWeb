@@ -6,7 +6,44 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        th {
+            background-color: #1b26f2;
+            color: white;
+        }
+    </style>
+    <style>
+        button {
+            background-color: #1b26f2;
+            border: none;
+            color: white;
+            padding: 10px 27px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+    </style>
 </head>
+
 <body>
 <table>
     <tr>
@@ -26,9 +63,11 @@
         </td>
     </tr>
 </table>
-<a class="button1" name="crear" style="cursor:pointer"
-    href="/usuarios/crear">Crear
-</a>
+<button>
+    <a class="button1" name="crear" style="cursor:pointer; color: #f2f2f2"
+       href="/usuarios/crear">Crear
+    </a>
+</button>
 </body>
 </html>
 
@@ -36,16 +75,17 @@
     function editar(id) {
         window.location = "usuarios/editar?idcliente=" + id;
     }
+
     function eliminar(id) {
 
-        var url = '/usuarios/'+id;
+        var url = '/usuarios/' + id;
         var jsonString = JSON.stringify({idcliente: id});
         console.log(jsonString);
         $.ajax({
             type: "DELETE",
             url: url,
             data: jsonString,
-            success: function(msg){
+            success: function (msg) {
                 location.reload();
             },
 

@@ -11,7 +11,7 @@ public class AlquileresEntity {
     private Date fechaalquiler;
     private Date fechadevuelto;
     private int diasalquilado;
-    private byte devuelto;
+    private boolean devuelto;
     private PeliculasEntity peliculasByIdpelicula;
     private ClienteEntity clienteByIdcliente;
 
@@ -57,11 +57,11 @@ public class AlquileresEntity {
 
     @Basic
     @Column(name = "devuelto", nullable = false)
-    public byte getDevuelto() {
+    public boolean getDevuelto() {
         return devuelto;
     }
 
-    public void setDevuelto(byte devuelto) {
+    public void setDevuelto(boolean devuelto) {
         this.devuelto = devuelto;
     }
 

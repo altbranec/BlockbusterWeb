@@ -14,12 +14,12 @@
     Cliente: <input id="cliente" type="text" name="cliente" th:value="${alquileres.clienteByIdcliente.idcliente}"/><br>
     Pelicula: <input id="pelicula" type="text" name="pelicula"
                      th:value="${alquileres.peliculasByIdpelicula.idpeliculas}"/><br>
-    Fecha Alquiler:<input id="fechaalquiler" name="fechaalquiler" type="text"
+    Fecha Alquiler:<span id="fechaalquiler" name="fechaalquiler" type="text"
                           th:text="${alquileres.fechaalquiler}"/><br>
-    Fecha Devolucion:<input id="fechadevuelto" name="fechadevuelto" type="text"
-                            th:text="${alquileres.fechadevuelto}"/><br>
+    Fecha Devolucion:<input type="date" id="fechadevuelto" name="fechadevuelto"
+                            th:value="${alquileres.fechadevuelto}"/><br>
     Dias Alquilado:<input id="diasalquilado" name="diasalquilado" type="text"
-                          th:text="${alquileres.diasalquilado}"/><br>
+                          th:value="${alquileres.diasalquilado}"/><br>
     <input type="submit" value="Submit"/>
 </form>
 </body>

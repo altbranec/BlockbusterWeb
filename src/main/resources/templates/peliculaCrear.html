@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,20 +9,33 @@
 </head>
 
 
-<form id="crearForm">
-    Nombre: <input id="nombre" type="text" name="nombre"/><br>
+<form id="editarForm">
+    Nombre: <input id="nombre" type="text" name="nombre" /><br>
+    Genero:
+    <select id="selectGenero" >
+        <option th:each="genero : ${generos}" th:value="${genero.idgeneros}" th:text="${genero.nombre}">genero</option>
+    </select>
+    <br>
     <input type="submit" value="Submit"/>
 </form>
 </body>
 </html>
 
 <script>
-    $("#crearForm").submit(function (event) {
+    $("#editarForm").submit(function (event) {
         event.preventDefault();
         var form = $(this);
-        var url = '/usuarios';
-        var nombre = form.find('input[name="nombre"]').val();
-        var jsonString = JSON.stringify({nombre: nombre});
+        var url = '/peliculas';
+        var pelicula =
+            {
+                "nombre": form.find('input[name="nombre"]').val(),
+                "generosByIdgenero": {
+                    "idgeneros": document.getElementById('selectGenero').value,
+                    "nombre" : document.getElementById('selectGenero').textContent,
+                }
+            }
+
+        var jsonString = JSON.stringify(pelicula);
         console.log(jsonString);
 
         $.ajax({
@@ -31,11 +44,8 @@
             contentType: 'application/json',
             data: jsonString,
             success: function (data, status, xhr) {
-                window.location="/peliculas";
+                window.location = "/peliculas";
             },
-            error: function (xhr, status, error) {
-                alert(error);
-            }
         });
     });
 

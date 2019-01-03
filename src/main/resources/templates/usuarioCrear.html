@@ -6,14 +6,37 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
+    <style>
+        button {
+            background-color: #1b26f2;
+            border: none;
+            color: white;
+            padding: 10px 27px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+    </style>
+    <style>
+        body{
+            font-size: large;
+        }
+    </style>
 </head>
 
-
-<form id="crearForm" >
-    Nombre: <input id="nombre" type="text" name="nombre" /><br>
-    DNI: <input id="dni" type="text" name="dni"/><br>
-    <input type="submit" value="Submit"/>
+<body>
+    <pre>
+        <form id="crearForm" >
+             Nombre: <input id="nombre" type="text" name="nombre" /><br>
+             DNI: <input id="dni" type="text" name="dni"/><br>
+            <button type="submit" value="Submit">Submit</button>
 </form>
+    </pre>
 </body>
 </html>
 

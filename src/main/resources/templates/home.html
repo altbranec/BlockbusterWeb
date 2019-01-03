@@ -1,10 +1,32 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
-<head><title>Home Page</title></head>
+<head>
+    <title>Home Page</title>
+    <style>
+        button {
+            background-color: #1b26f2;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
 <body>
-<h1>Hello !</h1>
-<p>Welcome to <span th:text="${appName}">Our App</span></p>
-<a href="/usuarios">Usuarios</a>
-<a href="/peliculas">Peliculas</a>
-<a href="/alquileres">Alquileres</a>
+<p style="font-size: x-large;font-family: 'Times New Roman';font-style: italic">Welcome to...</p>
+<img src="http://i67.tinypic.com/ir8glw.jpg">
+<p></p>
+<button class="button"><a style="color: white" href="/usuarios">Usuarios</a></button>
+<button class="button"><a style="color: white" href="/peliculas">Peliculas</a></button>
+<button class="button"><a style="color: white" href="/alquileres">Alquileres</a></button>
 </body>
 </html>
