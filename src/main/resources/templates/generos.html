@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Generos</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+    </tr>
+    <tr th:each="genero :${listaGeneros}">
+        <td th:text="${genero.idgeneros}">id</td>
+        <td th:text="${genero.nombre}">nombre</td>
+        <td th:id="${genero.idgeneros}" class="button1" name="editar" style="cursor:pointer"
+            OnClick="javascript:editar(id)">Editar
+        </td>
+        <td th:id="${genero.idgeneros}" class="button1" name="eliminar" style="cursor:pointer"
+            OnClick="javascript:eliminar(id)">Eliminar
+        </td>
+    </tr>
+</table>
+<button>
+    <a class="button1" name="crear" style="cursor:pointer; color: #f2f2f2"
+       href="/generos/crear">Crear
+    </a>
+</button>
+</body>
+</html>
+
+<script type="text/javascript">
+    function editar(id) {
+        window.location = "generos/editar?idgeneros=" + id;
+    }
+
+    function eliminar(id) {
+
+        var url = '/generos/' + id;
+        var jsonString = JSON.stringify({idgeneros: id});
+        console.log(jsonString);
+        $.ajax({
+            type: "DELETE",
+            url: url,
+            data: jsonString,
+            success: function (msg) {
+                location.reload();
+            },
+
+        });
+    }
+</script>

@@ -10,11 +10,10 @@
 
 
 <form id="crearForm">
-    ID Alquiler:<input id="idalquiler" type="text" name="id"/><br>
     ID Cliente: <input id="cliente" type="text" name="cliente"/><br>
     ID Pelicula: <input id="pelicula" type="text" name="pelicula"/><br>
-    Fecha Alquiler:<input id="fechaalquiler" type="text" name="fechaalquiler"/><br>
-    Fecha Devolucion:<input id="fechadevuelto" type="text" name="fechadevuelto"/><br>
+    Fecha Alquiler:<input id="fechaalquiler" type="date" name="fechaalquiler"/><br>
+    Fecha Devolucion:<input id="fechadevuelto" type="date" name="fechadevuelto"/><br>
     Dias Alquilado:<input id="diasalquilado" type="text" name="diasalquilado"/><br>
     <input type="submit" value="Submit"/>
 </form>
@@ -26,23 +25,24 @@
     $("#crearForm").submit(function (event) {
         event.preventDefault();
         var form = $(this);
-        var url = '/alquiler';
-        var idcliente = form.find('input[name="cliente"]').val();
-        var idpelicula = form.find('input[name="pelicula"]').val();
-        var fchalquiler = form.find('input[name="fchalquiler"]').val();
-        var fchdevuelto = form.find('input[name="fechadevuelto"]').val();
-        var diasalquilado = form.find('input[name="diasalquilado"]').val();
+        var url = '/alquileres';
+        var alquiler =
+            {
+                "clienteByIdcliente": {
+                    "idcliente": form.find('input[name="cliente"]').val(),
+                },
+                "peliculasByIdpelicula": {
+                    "idpeliculas": form.find('input[name="pelicula"]').val(),
+                },
+                "fechaalquiler": form.find('input[name="fechaalquiler"]').val(),
+                "fechadevuelto": form.find('input[name="fechadevuelto"]').val(),
+                "diasalquilado": form.find('input[name="diasalquilado"]').val(),
 
-        var jsonString = JSON.stringify({
-            idalquileres: id,
-            clienteByIdcliente: idcliente,
-            peliculasByIdpelicula: idpelicula,
-            fechaalquiler: fchalquiler,
-            fechadevuelto: fchdevuelto,
-            diasalquilado: diasalquilado
-        });
+
+            }
+
+        var jsonString = JSON.stringify(alquiler);
         console.log(jsonString);
-
         $.ajax({
             type: 'POST',
             url: url,

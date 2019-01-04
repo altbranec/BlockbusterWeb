@@ -1,9 +1,13 @@
 package ar.com.nec.pasantia.blockbuster.controller;
 
 import ar.com.nec.pasantia.blockbuster.entities.AlquileresEntity;
+import ar.com.nec.pasantia.blockbuster.entities.ClienteEntity;
+import ar.com.nec.pasantia.blockbuster.entities.PeliculasEntity;
 import ar.com.nec.pasantia.blockbuster.exception.AlquilerIdMismatchException;
 import ar.com.nec.pasantia.blockbuster.exception.AlquilerNotFoundException;
 import ar.com.nec.pasantia.blockbuster.repository.AlquilerRepository;
+import ar.com.nec.pasantia.blockbuster.repository.ClienteRepository;
+import ar.com.nec.pasantia.blockbuster.repository.PeliculasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -17,18 +21,33 @@ import java.util.*;
 public class AlquileresController {
     @Autowired
     private AlquilerRepository repoAlquileres;
+//    private ClienteRepository repoClientes;
+//    private PeliculasRepository repoPelis;
 
     @GetMapping
     public String alquileresPage(Model model) {
+
         List<AlquileresEntity> listAlqui = (List<AlquileresEntity>) repoAlquileres.findAll();
         List<AlquileresEntity> alquiMostrar = new ArrayList<AlquileresEntity>();
         for (AlquileresEntity alquiler : listAlqui) {
-            if (alquiler.getDevuelto()) {
+            if (!alquiler.getDevuelto()) {
                 alquiMostrar.add(alquiler);
             }
         }
         model.addAttribute("listaAlquileres", alquiMostrar);
+
         return "alquileres";
+    }
+
+    @GetMapping("crear")
+    public String crearAlquiler(Model model) {
+        return "alquileresCrear";
+    }
+
+    @GetMapping("logs")
+    public String verLogs(Model model) {
+        model.addAttribute("logs", ""); //agregar los logs
+        return "alquileresLogs";
     }
 
     @GetMapping("editar")
@@ -38,7 +57,7 @@ public class AlquileresController {
     }
 
     @GetMapping("/idalquileres/{idalquileres}")
-    public List findByid(@PathVariable int idalquileres) {
+    public List findByidAlquileres(@PathVariable int idalquileres) {
         return repoAlquileres.findAlquileresEntitiesByIdalquileres(idalquileres);
     }
 
@@ -50,24 +69,22 @@ public class AlquileresController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AlquileresEntity create(@RequestBody AlquileresEntity alquiler) {
-        return repoAlquileres.save(alquiler);
+    public AlquileresEntity create(@RequestBody AlquileresEntity alquileres) {
+        return repoAlquileres.save(alquileres);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id) {
         AlquileresEntity alquiler = repoAlquileres.findById(id)
                 .orElseThrow(AlquilerNotFoundException::new);
-        alquiler.setDevuelto(false);
+        alquiler.setDevuelto(true);
         repoAlquileres.save(alquiler);
     }
 
-    @PutMapping("/{id}")
-    public AlquileresEntity updateAlquiler(@RequestBody AlquileresEntity alquiler, @PathVariable int id) {
-        if (alquiler.getIdalquileres() != id) {
-            throw new AlquilerIdMismatchException();
-        }
-        repoAlquileres.findById(id)
+    @PutMapping
+    public AlquileresEntity updateAlquiler(@RequestBody AlquileresEntity alquiler) {
+
+        repoAlquileres.findById(alquiler.getIdalquileres())
                 .orElseThrow(AlquilerNotFoundException::new);
         return repoAlquileres.save(alquiler);
     }

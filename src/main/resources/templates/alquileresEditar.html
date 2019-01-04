@@ -11,11 +11,12 @@
 
 <form id="editarForm">
     ID Alquiler:<span id="idalquiler" name="id" type="text" th:text="${alquileres.idalquileres}"/><br>
-    Cliente: <input id="cliente" type="text" name="cliente" th:value="${alquileres.clienteByIdcliente.idcliente}"/><br>
-    Pelicula: <input id="pelicula" type="text" name="pelicula"
-                     th:value="${alquileres.peliculasByIdpelicula.idpeliculas}"/><br>
-    Fecha Alquiler:<span id="fechaalquiler" name="fechaalquiler" type="text"
-                          th:text="${alquileres.fechaalquiler}"/><br>
+    ID Cliente: <input id="cliente" type="text" name="cliente"
+                       th:value="${alquileres.clienteByIdcliente.idcliente}"/><br>
+    ID Pelicula: <input id="pelicula" type="text" name="pelicula"
+                        th:value="${alquileres.peliculasByIdpelicula.idpeliculas}"/><br>
+    Fecha Alquiler:<span id="fechaalquiler" name="fechaalquiler" type="date"
+                         th:text="${alquileres.fechaalquiler}"/><br>
     Fecha Devolucion:<input type="date" id="fechadevuelto" name="fechadevuelto"
                             th:value="${alquileres.fechadevuelto}"/><br>
     Dias Alquilado:<input id="diasalquilado" name="diasalquilado" type="text"
@@ -30,22 +31,25 @@
     $("#editarForm").submit(function (event) {
         event.preventDefault();
         var form = $(this);
-        var id = [[${alquileres.idalquileres}]];
         var url = '/alquileres';
-        var cliente = form.find('input[name="cliente"]').val();
-        var pelicula = form.find('input[name="pelicula"]').val();
-        var fchalquiler = form.find('input[name="fchalquiler"]').val();
-        var fchdevuelto = form.find('input[name="fechadevuelto"]').val();
-        var diasalquilado = form.find('input[name="diasalquilado"]').val();
+        var alquiler =
+            {
 
-        var jsonString = JSON.stringify({
-            idalquileres: id,
-            clienteByIdcliente: cliente,
-            peliculasByIdpelicula: pelicula,
-            fechaalquiler: fchalquiler,
-            fechadevuelto: fchdevuelto,
-            diasalquilado: diasalquilado
-        });
+                "idalquileres": [[${alquileres.idalquileres}]],
+                "clienteByIdcliente": {
+                    "idcliente": form.find('input[name="cliente"]').val(),
+                },
+                "peliculasByIdpelicula": {
+                    "idpeliculas": form.find('input[name="pelicula"]').val(),
+                },
+                "fechaalquiler": $("#fechaalquiler").text(),
+                "fechadevuelto": form.find('input[name="fechadevuelto"]').val(),
+                "diasalquilado": form.find('input[name="diasalquilado"]').val(),
+
+
+            }
+
+        var jsonString = JSON.stringify(alquiler);
         console.log(jsonString);
 
         $.ajax({
@@ -58,4 +62,4 @@
             },
         });
     });
-
+</script>

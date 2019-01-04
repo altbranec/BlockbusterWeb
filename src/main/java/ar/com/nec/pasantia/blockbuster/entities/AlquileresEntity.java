@@ -16,6 +16,7 @@ public class AlquileresEntity {
     private ClienteEntity clienteByIdcliente;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idalquileres", nullable = false)
     public int getIdalquileres() {
         return idalquileres;

@@ -13,6 +13,7 @@ public class PeliculasEntity {
     private GenerosEntity generosByIdgenero;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idpeliculas", nullable = false)
     public int getIdpeliculas() {
         return idpeliculas;

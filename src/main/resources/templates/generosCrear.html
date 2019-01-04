@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        body{
+            font-size: large;
+        }
+    </style>
+</head>
+
+
+<form id="crearForm">
+    Nombre: <input id="nombre" type="text" name="nombre"/><br>
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
+
+<script>
+    $("#crearForm").submit(function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var url = '/generos';
+        var nombre = form.find('input[name="nombre"]').val();
+        var jsonString = JSON.stringify({nombre: nombre});
+        console.log(jsonString);
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            contentType: 'application/json',
+            data: jsonString,
+            success: function (data, status, xhr) {
+                window.location="/peliculas/crear";
+            },
+            error: function (xhr, status, error) {
+                alert(error);
+            }
+        });
+    });
+
+</script>

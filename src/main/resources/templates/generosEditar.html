@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        body{
+            font-size: large;
+        }
+    </style>
+</head>
+
+<pre>
+    <form id="editarForm" >
+    <
+        IDGenero:<span id="id" name = "id" type="text" th:text="${genero.idgeneros}"/><br>
+        Nombre: <input id="nombre" type="text" name="nombre" th:value="${genero.nombre}"/><br>
+        <button type="submit" value="Submit">Submit</button>
+
+    </form>
+</pre>
+</body>
+</html>
+
+
+<script>
+    $("#editarForm").submit(function(event){
+        event.preventDefault();
+        var form = $(this);
+        var id = [[${genero.idgeneros}]];
+        var url = '/generos';
+        var nombre = form.find('input[name="nombre"]').val();
+        var jsonString = JSON.stringify({idgeneros: id, nombre: nombre});
+        console.log(jsonString);
+
+        $.ajax({
+            type : 'PUT',
+            url : url,
+            contentType: 'application/json',
+            data : jsonString,
+            success : function(data, status, xhr){
+                window.location="/generos";
+            },
+        });
+    });
+
+</script>

@@ -13,6 +13,7 @@ public class ClienteEntity {
     private Collection<AlquileresEntity> alquileresByIdcliente;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idcliente", nullable = false)
     public int getIdcliente() {
         return idcliente;
