@@ -6,10 +6,27 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        button{
+            background-color: #1b26f2;
+            border: none;
+            color: white;
+            padding: 10px 27px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+    </style>
 </head>
 
-
-<form id="editarForm">
+<pre>
+    <form id="editarForm">
     IdPelicula:<span id="idpeli" name="idpeli" type="text" th:text="${pelicula.idpeliculas}"/><br>
     Genero:
     <select id="selectGenero" >
@@ -17,8 +34,16 @@
     </select>
     <br>
     Nombre: <input id="nombre" type="text" name="nombre" th:value="${pelicula.nombre}"/><br>
-    <input type="submit" value="Submit"/>
-</form>
+    <button type="submit" value="Submit">Submit</button>
+    </form>
+</pre>
+
+<br>
+<button>
+    <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
+       href="/peliculas">Volver
+    </a>
+</button>
 </body>
 </html>
 

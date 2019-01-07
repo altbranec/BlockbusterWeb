@@ -3,10 +3,12 @@ package ar.com.nec.pasantia.blockbuster.controller;
 import ar.com.nec.pasantia.blockbuster.entities.PeliculasEntity;
 import ar.com.nec.pasantia.blockbuster.exception.PeliculaIdMismatchException;
 import ar.com.nec.pasantia.blockbuster.exception.PeliculaNotFoundException;
+import ar.com.nec.pasantia.blockbuster.repository.AlquilerRepository;
 import ar.com.nec.pasantia.blockbuster.repository.GenerosRepository;
 import ar.com.nec.pasantia.blockbuster.repository.PeliculasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,8 @@ public class PeliculasController {
     private PeliculasRepository repoPeliculas;
     @Autowired
     private GenerosRepository generosRepository;
+    @Autowired
+    private AlquilerRepository repoAlquileres;
 
     @GetMapping
     public String peliculasPage(Model model) {
@@ -60,12 +64,6 @@ public class PeliculasController {
         return repoPeliculas.save(film);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable int id) {
-        repoPeliculas.findById(id)
-                .orElseThrow(PeliculaNotFoundException::new);
-        repoPeliculas.deleteById(id);
-    }
 
     @PutMapping
     public PeliculasEntity updatePelicula(@RequestBody PeliculasEntity film) {

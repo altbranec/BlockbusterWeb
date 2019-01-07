@@ -6,10 +6,27 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        button{
+            background-color: #1b26f2;
+            border: none;
+            color: white;
+            padding: 10px 27px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+    </style>
 </head>
 
-
-<form id="editarForm">
+<pre>
+    <form id="editarForm">
     ID Alquiler:<span id="idalquiler" name="id" type="text" th:text="${alquileres.idalquileres}"/><br>
     ID Cliente: <input id="cliente" type="text" name="cliente"
                        th:value="${alquileres.clienteByIdcliente.idcliente}"/><br>
@@ -21,8 +38,14 @@
                             th:value="${alquileres.fechadevuelto}"/><br>
     Dias Alquilado:<input id="diasalquilado" name="diasalquilado" type="text"
                           th:value="${alquileres.diasalquilado}"/><br>
-    <input type="submit" value="Submit"/>
+    <button type="submit" value="Submit">Submit</button>
 </form>
+</pre>
+<button>
+    <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
+       href="/alquileres">Volver
+    </a>
+</button>
 </body>
 </html>
 

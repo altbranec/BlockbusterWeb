@@ -6,21 +6,48 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        button{
+            background-color: #1b26f2;
+            border: none;
+            color: white;
+            padding: 10px 27px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+    </style>
 </head>
 
-
-<form id="editarForm">
+<pre>
+    <form id="editarForm">
     Nombre: <input id="nombre" type="text" name="nombre" /><br>
     Genero:
     <select id="selectGenero" >
         <option th:each="genero : ${generos}" th:value="${genero.idgeneros}" th:text="${genero.nombre}">genero</option>
     </select>
-    <a class="button1" name="crear" style="cursor:pointer; color: #f2f2f2"
-       href="/generos/crear">Crear Genero
-    </a>
-    <br>
-    <input type="submit" value="Submit"/>
+        <button type="submit" value="Submit">Submit</button>
 </form>
+</pre>
+<button>
+    <a class="button1" name="crear" style="cursor:pointer;color: #f2f2f2"
+       href="/generos/crear">Crear Genero</a>
+</button>
+<button>
+    <a class="button1" name="editar" style="cursor:pointer;color: #f2f2f2"
+       href="/generos/editar">Editar Genero</a>
+</button>
+<br>
+<button>
+    <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
+       href="/peliculas">Volver</a>
+</button>
 </body>
 </html>
 

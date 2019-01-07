@@ -6,17 +6,36 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
-
-<form id="crearForm">
-    ID Cliente: <input id="cliente" type="text" name="cliente"/><br>
-    ID Pelicula: <input id="pelicula" type="text" name="pelicula"/><br>
-    Fecha Alquiler:<input id="fechaalquiler" type="date" name="fechaalquiler"/><br>
+<pre>
+    <form id="crearForm">
+    <div style="width:300px;">
+        Cliente: <input list="clientes" id="cliente" type="text" name="cliente"/>
+        <datalist id="clientes">
+            <option th:each="row : ${listaClientes}" th:data-value="${row.idcliente}" th:value="${row.nombre}">
+        </datalist>
+    </div>
+    <br>
+    <div style="width:300px;">
+        Pelicula: <input list="peliculas" id="pelicula" type="text" name="pelicula"/>
+        <datalist id="peliculas">
+            <option th:each="row : ${listaPeliculas}" th:data-value="${row.idpeliculas}" th:value="${row.nombre}">
+        </datalist>
+    </div>
+    <br>
+	Fecha Alquiler:<input id="fechaalquiler" type="date" name="fechaalquiler"/><br>
     Fecha Devolucion:<input id="fechadevuelto" type="date" name="fechadevuelto"/><br>
     Dias Alquilado:<input id="diasalquilado" type="text" name="diasalquilado"/><br>
-    <input type="submit" value="Submit"/>
+    <button type="submit" value="Submit">Submit</button>
 </form>
+</pre>
+<button>
+    <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
+       href="/alquileres">Volver
+    </a>
+</button>
 </body>
 </html>
 
@@ -26,13 +45,19 @@
         event.preventDefault();
         var form = $(this);
         var url = '/alquileres';
+		var peli2send = document.querySelector("#peliculas option[value='" +
+            document.getElementById("pelicula").value +
+            "']").dataset.value;
+        var user2send = document.querySelector("#clientes option[value='" +
+            document.getElementById("cliente").value
+            + "']").dataset.value;
         var alquiler =
             {
                 "clienteByIdcliente": {
-                    "idcliente": form.find('input[name="cliente"]').val(),
+                    "idcliente": user2send,
                 },
                 "peliculasByIdpelicula": {
-                    "idpeliculas": form.find('input[name="pelicula"]').val(),
+                    "idpeliculas": peli2send,
                 },
                 "fechaalquiler": form.find('input[name="fechaalquiler"]').val(),
                 "fechadevuelto": form.find('input[name="fechadevuelto"]').val(),
@@ -51,6 +76,7 @@
             success: function (data, status, xhr) {
                 window.location = "/alquileres";
             },
+
         });
     });
 

@@ -6,42 +6,7 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 60%;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2
-        }
-
-        th {
-            background-color: #1b26f2;
-            color: white;
-        }
-    </style>
-    <style>
-        button {
-            background-color: #1b26f2;
-            border: none;
-            color: white;
-            padding: 10px 27px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            -webkit-transition-duration: 0.4s; /* Safari */
-            transition-duration: 0.4s;
-        }
-    </style>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -68,6 +33,11 @@
        href="/usuarios/crear">Crear
     </a>
 </button>
+<button>
+    <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
+       href="/">Volver
+    </a>
+</button>
 </body>
 </html>
 
@@ -88,7 +58,12 @@
             success: function (msg) {
                 location.reload();
             },
-
+            error: function (xhr, ajaxOptions, thrownError) {
+                switch (xhr.status) {
+                    case 409:
+                    alert("El usuario tiene alquileres sin devolver")
+                }
+            },
         });
     }
 </script>

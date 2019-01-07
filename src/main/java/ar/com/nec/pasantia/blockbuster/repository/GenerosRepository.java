@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface GenerosRepository extends CrudRepository<GenerosEntity,Integer> {
 	List<GenerosEntity> findGenerosEntityByIdgeneros(int Id);
+	boolean existsByNombreIgnoreCase(String nombre);
 }

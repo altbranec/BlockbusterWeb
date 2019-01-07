@@ -6,6 +6,7 @@ import ar.com.nec.pasantia.blockbuster.exception.GenerosNotFoundException;
 import ar.com.nec.pasantia.blockbuster.repository.GenerosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,9 +30,13 @@ public class GenerosController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public GenerosEntity create(@RequestBody GenerosEntity genero) {
-        return repoGeneros.save(genero);
+    public ResponseEntity<?> create(@RequestBody GenerosEntity genero) {
+        if(repoGeneros.existsByNombreIgnoreCase(genero.getNombre())){
+            return new ResponseEntity<String>(HttpStatus.FOUND);
+        }else {
+            repoGeneros.save(genero);
+            return new ResponseEntity(HttpStatus.CREATED);
+        }
     }
 
 }

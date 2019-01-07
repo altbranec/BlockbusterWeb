@@ -4,9 +4,11 @@ package ar.com.nec.pasantia.blockbuster.controller;
 import ar.com.nec.pasantia.blockbuster.entities.ClienteEntity;
 import ar.com.nec.pasantia.blockbuster.exception.ClienteIdMismatchException;
 import ar.com.nec.pasantia.blockbuster.exception.ClienteNotFoundException;
+import ar.com.nec.pasantia.blockbuster.repository.AlquilerRepository;
 import ar.com.nec.pasantia.blockbuster.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,9 @@ import java.util.List;
 public class ClienteController {
     @Autowired
     private ClienteRepository repoClientes;
+
+    @Autowired
+    private AlquilerRepository repoAlquileres;
 
     @GetMapping
     public String usuariosPage(Model model) {
@@ -42,17 +47,27 @@ public class ClienteController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public ClienteEntity create(@RequestBody ClienteEntity cliente) {
-        return repoClientes.save(cliente);
+    public ResponseEntity<?> create(@RequestBody ClienteEntity cliente) {
+        if(repoClientes.existsClienteEntityByDni(cliente.getDni())){
+            return new ResponseEntity<String>(HttpStatus.CONFLICT);
+        }else{
+            repoClientes.save(cliente);
+            return new ResponseEntity(HttpStatus.CREATED);
+        }
+
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public void delete(@PathVariable int id) {
-        repoClientes.findById(id)
-                .orElseThrow(ClienteNotFoundException::new);
-        repoClientes.deleteById(id);
+    public ResponseEntity<?> delete(@PathVariable int id) {
+        if(repoAlquileres.existsAlquileresEntityByClienteByIdclienteAndDevueltoIsFalse(repoClientes.findById(id).get())){
+            return new ResponseEntity<String>(HttpStatus.CONFLICT);
+        }else{
+            repoClientes.findById(id)
+                    .orElseThrow(ClienteNotFoundException::new);
+            repoClientes.deleteById(id);
+            return new ResponseEntity(HttpStatus.OK);
+        }
+
     }
 
     @PutMapping

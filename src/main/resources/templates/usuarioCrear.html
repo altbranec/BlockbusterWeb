@@ -6,8 +6,9 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <style>
-        button {
+        button{
             background-color: #1b26f2;
             border: none;
             color: white;
@@ -22,11 +23,6 @@
             transition-duration: 0.4s;
         }
     </style>
-    <style>
-        body{
-            font-size: large;
-        }
-    </style>
 </head>
 
 <body>
@@ -37,6 +33,12 @@
             <button type="submit" value="Submit">Submit</button>
 </form>
     </pre>
+<br>
+    <button>
+        <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
+           href="/usuarios">Volver
+        </a>
+    </button>
 </body>
 </html>
 
@@ -58,6 +60,12 @@
             data : jsonString,
             success : function(data, status, xhr){
                 window.location="/usuarios";
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                switch (xhr.status) {
+                    case 409:
+                        alert("El usuario ya existe")
+                }
             },
         });
     });

@@ -21,26 +21,22 @@ import java.util.*;
 public class AlquileresController {
     @Autowired
     private AlquilerRepository repoAlquileres;
-//    private ClienteRepository repoClientes;
-//    private PeliculasRepository repoPelis;
+    @Autowired
+    private PeliculasRepository repoPeliculas;
+    @Autowired
+    private ClienteRepository repoClientes;
 
     @GetMapping
     public String alquileresPage(Model model) {
-
-        List<AlquileresEntity> listAlqui = (List<AlquileresEntity>) repoAlquileres.findAll();
-        List<AlquileresEntity> alquiMostrar = new ArrayList<AlquileresEntity>();
-        for (AlquileresEntity alquiler : listAlqui) {
-            if (!alquiler.getDevuelto()) {
-                alquiMostrar.add(alquiler);
-            }
-        }
+        List<AlquileresEntity> alquiMostrar = repoAlquileres.findAlquileresEntityByDevueltoIsFalse();
         model.addAttribute("listaAlquileres", alquiMostrar);
-
         return "alquileres";
     }
 
     @GetMapping("crear")
     public String crearAlquiler(Model model) {
+        model.addAttribute("listaPeliculas", repoPeliculas.findAll());
+        model.addAttribute("listaClientes", repoClientes.findAll());
         return "alquileresCrear";
     }
 
@@ -54,11 +50,6 @@ public class AlquileresController {
     public String editarAlquileresPage(@RequestParam("idalquiler") int idAlquiler, Model model) {
         model.addAttribute("alquileres", repoAlquileres.findById(idAlquiler).get());
         return "alquileresEditar";
-    }
-
-    @GetMapping("/idalquileres/{idalquileres}")
-    public List findByidAlquileres(@PathVariable int idalquileres) {
-        return repoAlquileres.findAlquileresEntitiesByIdalquileres(idalquileres);
     }
 
     @GetMapping("/{idalquileres}")
