@@ -14,7 +14,9 @@
             padding: 8px;
         }
 
-        tr:nth-child(even){background-color: #f2f2f2}
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
 
         th {
             background-color: #1b26f2;
@@ -41,7 +43,10 @@
 
 <body>
 <span th:text="${logs}"></span>
-</body>
-</html>
+<button>
+    <a class="button1" name="volver" style="cursor:pointer; color: #f2f2f2"
+       href="/alquileres">Volver
+    </a>
+</button>
 </body>
 </html>

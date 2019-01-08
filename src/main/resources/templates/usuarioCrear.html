@@ -8,7 +8,7 @@
     </script>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <style>
-        button{
+        button {
             background-color: #1b26f2;
             border: none;
             color: white;
@@ -26,40 +26,51 @@
 </head>
 
 <body>
-    <pre>
-        <form id="crearForm" >
-             Nombre: <input id="nombre" type="text" name="nombre" /><br>
-             DNI: <input id="dni" type="text" name="dni"/><br>
+<pre>
+        <form id="crearForm">
+             Nombre: <input id="nombre" type="text" pattern="^[a-zA-Z]+$" name="nombre" required/><br>
+             DNI: <input id="dni" type="number" name="dni" min="1" max="99999999" required/><br>
             <button type="submit" value="Submit">Submit</button>
 </form>
     </pre>
 <br>
-    <button>
-        <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
-           href="/usuarios">Volver
-        </a>
-    </button>
+<button>
+    <a class="button1" name="volver" style="cursor:pointer; color: #f2f2f2"
+       href="/usuarios">Volver
+    </a>
+</button>
 </body>
 </html>
 
+<!--<script>
+    function validarDni(inputtxt) {
+        var dniAct = /^\d{8}$/;
+        if (inputtxt.value.match(dniAct)) {
+            return true;
+        } else {
+            alert("DNI invalido");
+            return false;
+        }
+    }
+</script>-->
 
 <script>
-    $("#crearForm").submit(function(event){
+    $("#crearForm").submit(function (event) {
         event.preventDefault();
         var form = $(this);
         var url = '/usuarios';
         var nombre = form.find('input[name="nombre"]').val();
         var dni = form.find('input[name="dni"]').val();
-        var jsonString = JSON.stringify({ nombre: nombre, dni: dni});
+        var jsonString = JSON.stringify({nombre: nombre, dni: dni});
         console.log(jsonString);
 
         $.ajax({
-            type : 'POST',
-            url : url,
+            type: 'POST',
+            url: url,
             contentType: 'application/json',
-            data : jsonString,
-            success : function(data, status, xhr){
-                window.location="/usuarios";
+            data: jsonString,
+            success: function (data, status, xhr) {
+                window.location = "/usuarios";
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 switch (xhr.status) {

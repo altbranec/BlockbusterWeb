@@ -8,7 +8,7 @@
     </script>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <style>
-        button{
+        button {
             background-color: #1b26f2;
             border: none;
             color: white;
@@ -28,10 +28,20 @@
 <pre>
     <form id="editarForm">
     ID Alquiler:<span id="idalquiler" name="id" type="text" th:text="${alquileres.idalquileres}"/><br>
-    ID Cliente: <input id="cliente" type="text" name="cliente"
-                       th:value="${alquileres.clienteByIdcliente.idcliente}"/><br>
-    ID Pelicula: <input id="pelicula" type="text" name="pelicula"
-                        th:value="${alquileres.peliculasByIdpelicula.idpeliculas}"/><br>
+    <div style="width:300px;">
+        Cliente: <input list="clientes" id="cliente" type="text" name="cliente"/>
+        <datalist id="clientes">
+            <option th:each="row : ${listaClientes}" th:data-value="${row.idcliente}" th:value="${row.nombre}">
+        </datalist>
+    </div>
+    <br>
+    <div style="width:300px;">
+        Pelicula: <input list="peliculas" id="pelicula" type="text" name="pelicula"/>
+        <datalist id="peliculas">
+            <option th:each="row : ${listaPeliculas}" th:data-value="${row.idpeliculas}" th:value="${row.nombre}">
+        </datalist>
+    </div>
+    <br>
     Fecha Alquiler:<span id="fechaalquiler" name="fechaalquiler" type="date"
                          th:text="${alquileres.fechaalquiler}"/><br>
     Fecha Devolucion:<input type="date" id="fechadevuelto" name="fechadevuelto"
@@ -42,7 +52,7 @@
 </form>
 </pre>
 <button>
-    <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
+    <a class="button1" name="volver" style="cursor:pointer; color: #f2f2f2"
        href="/alquileres">Volver
     </a>
 </button>
@@ -55,15 +65,21 @@
         event.preventDefault();
         var form = $(this);
         var url = '/alquileres';
+        var peli2send = document.querySelector("#peliculas option[value='" +
+            document.getElementById("pelicula").value +
+            "']").dataset.value;
+        var user2send = document.querySelector("#clientes option[value='" +
+            document.getElementById("cliente").value
+            + "']").dataset.value;
         var alquiler =
             {
 
                 "idalquileres": [[${alquileres.idalquileres}]],
                 "clienteByIdcliente": {
-                    "idcliente": form.find('input[name="cliente"]').val(),
+                    "idcliente": user2send,
                 },
                 "peliculasByIdpelicula": {
-                    "idpeliculas": form.find('input[name="pelicula"]').val(),
+                    "idpeliculas": peli2send,
                 },
                 "fechaalquiler": $("#fechaalquiler").text(),
                 "fechadevuelto": form.find('input[name="fechadevuelto"]').val(),

@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        button {
+            background-color: #1b26f2;
+            border: none;
+            color: white;
+            padding: 10px 27px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+    </style>
 </head>
 
 <pre>
@@ -18,56 +35,127 @@
         </datalist>
     </div>
     <br>
+	Fecha Alquiler:<input id="fechaalquiler" type="date" name="fechaalquiler" readonly/><br>
+    Fecha Devolucion:<input id="fechadevuelto" type="date" name="fechadevuelto"/><br>
     <div style="width:300px;">
         Pelicula: <input list="peliculas" id="pelicula" type="text" name="pelicula"/>
         <datalist id="peliculas">
             <option th:each="row : ${listaPeliculas}" th:data-value="${row.idpeliculas}" th:value="${row.nombre}">
         </datalist>
     </div>
+        <button style="margin-bottom:10px" type="submit" class="btn btn-default">Agregar peliculas</button>
     <br>
-	Fecha Alquiler:<input id="fechaalquiler" type="date" name="fechaalquiler"/><br>
-    Fecha Devolucion:<input id="fechadevuelto" type="date" name="fechadevuelto"/><br>
-    Dias Alquilado:<input id="diasalquilado" type="text" name="diasalquilado"/><br>
-    <button type="submit" value="Submit">Submit</button>
+        <table id="tablaPeliculas" class="table table-bordered table-hover">
+			<thead>
+				<tr>
+                    <th>IDPelicula</th>
+					<th>Nombre</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
 </form>
 </pre>
+<button id="crear" type="submit" value="Submit">Submit</button>
 <button>
-    <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
+    <a class="button1" name="volver" style="cursor:pointer; color: #f2f2f2"
        href="/alquileres">Volver
     </a>
 </button>
 </body>
 </html>
 
-
 <script>
-    $("#crearForm").submit(function (event) {
+    function calcularDias() {
+        var dateStart = new Date($("#fechaalquiler").val());
+        var dateEnd = new Date($("#fechadevuelto").val());
+        return (((dateEnd - dateStart) / 86400) / 1000);
+    }
+</script>
+<script>
+    var listaPeliculas = [];
+    $('#tablaPeliculas').hide();
+    $('#crear').hide();
+    var myDate = document.querySelector("#fechaalquiler");
+    var today = new Date();
+    myDate.value = today.toISOString().substr(0, 10);
+
+    $("#crearForm").submit(function(event) {
+        // Prevent the form from submitting via the browser.
+        event.preventDefault();
+
+        // get data from submit form
+        var idpeli2send = document.querySelector("#peliculas option[value='" +
+            document.getElementById("pelicula").value +
+            "']").dataset.value;
+        var nompeli2send = document.getElementById("pelicula").value;
+        var peli = {
+            idpeliculas : idpeli2send,
+            nombre : nompeli2send
+        }
+
+        // store customer
+        listaPeliculas.push(peli);
+
+        // re-render customer table by append new customer to table
+
+        var tablaPelis = '<tr>' +
+            '<td>' + idpeli2send + '</td>' +
+            '<td>' + nompeli2send + '</td>' +
+            '<td class="text-center">' +
+            '<input type="hidden" value=' + (listaPeliculas.length - 1) + '>' +
+            '<a>' +
+            '<span class="glyphicon glyphicon-remove"></span>' +
+            '</a>' +
+            '</td>' +
+            '</tr>';
+
+        $('#tablaPeliculas tbody').append(tablaPelis);
+
+        // just how customer table and POST button
+        $('#tablaPeliculas').show();
+        $('#crear').show();
+
+        // Reset FormData after Posting
+
+        $("#pelicula").val("");
+
+    });
+    $(document).on("click","a",function() {
+        var peliculaId = $(this).parent().find('input').val();
+        listaPeliculas.splice(peliculaId,1);
+        $(this).closest("tr").remove()
+    });
+
+    $("#crear").click(function (event) {
         event.preventDefault();
         var form = $(this);
         var url = '/alquileres';
-		var peli2send = document.querySelector("#peliculas option[value='" +
-            document.getElementById("pelicula").value +
-            "']").dataset.value;
+        var listaEnviar = [];
         var user2send = document.querySelector("#clientes option[value='" +
             document.getElementById("cliente").value
             + "']").dataset.value;
-        var alquiler =
-            {
-                "clienteByIdcliente": {
-                    "idcliente": user2send,
-                },
-                "peliculasByIdpelicula": {
-                    "idpeliculas": peli2send,
-                },
-                "fechaalquiler": form.find('input[name="fechaalquiler"]').val(),
-                "fechadevuelto": form.find('input[name="fechadevuelto"]').val(),
-                "diasalquilado": form.find('input[name="diasalquilado"]').val(),
+        listaPeliculas.forEach(function(pelicula) {
+            var alquiler =
+                {
+                    "clienteByIdcliente": {
+                        "idcliente": user2send,
+                    },
+                    "peliculasByIdpelicula": {
+                        "idpeliculas": pelicula.idpeliculas,
+                    },
+                    "fechaalquiler": $("#fechaalquiler").val(),
+                    "fechadevuelto": $("#fechadevuelto").val(),
+                    "diasalquilado": calcularDias(),
 
 
-            }
-
-        var jsonString = JSON.stringify(alquiler);
+                }
+            listaEnviar.push(alquiler);
+        });
+        var jsonString = JSON.stringify(listaEnviar);
         console.log(jsonString);
+        console.log([[${#dates.format(standardDate, 'dd-MM-yyyy')}]])
         $.ajax({
             type: 'POST',
             url: url,
