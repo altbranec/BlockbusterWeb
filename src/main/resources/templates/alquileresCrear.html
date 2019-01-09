@@ -8,55 +8,30 @@
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <style>
-        button {
-            background-color: #1b26f2;
-            border: none;
-            color: white;
-            padding: 10px 27px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            -webkit-transition-duration: 0.4s; /* Safari */
-            transition-duration: 0.4s;
-        }
-    </style>
+    <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
 </head>
-
-<pre>
     <form id="crearForm">
-    <div style="width:300px;">
-        Cliente: <input list="clientes" id="cliente" type="text" name="cliente"/>
-        <datalist id="clientes">
-            <option th:each="row : ${listaClientes}" th:data-value="${row.idcliente}" th:value="${row.nombre}">
-        </datalist>
-    </div>
-    <br>
-	Fecha Alquiler:<input id="fechaalquiler" type="date" name="fechaalquiler" readonly/><br>
-    Fecha Devolucion:<input id="fechadevuelto" type="date" name="fechadevuelto"/><br>
-    <div style="width:300px;">
-        Pelicula: <input list="peliculas" id="pelicula" type="text" name="pelicula"/>
-        <datalist id="peliculas">
-            <option th:each="row : ${listaPeliculas}" th:data-value="${row.idpeliculas}" th:value="${row.nombre}">
-        </datalist>
-    </div>
-        <button style="margin-bottom:10px" type="submit" class="btn btn-default">Agregar peliculas</button>
-    <br>
-        <table id="tablaPeliculas" class="table table-bordered table-hover">
-			<thead>
-				<tr>
-                    <th>IDPelicula</th>
-					<th>Nombre</th>
-				</tr>
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
+        <pre>
+            Cliente: <input list="clientes" id="cliente" type="text" name="cliente"/><datalist id="clientes"><option th:each="row : ${listaClientes}" th:data-value="${row.idcliente}" th:value="${row.nombre}"></datalist><br>
+            Fecha Alquiler:<input id="fechaalquiler" type="date" name="fechaalquiler" readonly/><br>
+            Fecha Devolucion:<input id="fechadevuelto" type="date" name="fechadevuelto"/><br>
+            Pelicula: <input list="peliculas" id="pelicula" type="text" name="pelicula"/>
+            <datalist id="peliculas">
+                <option th:each="row : ${listaPeliculas}" th:data-value="${row.idpeliculas}" th:value="${row.nombre}">
+            </datalist><br>
+            <button style="margin-bottom:10px" type="submit" class="btn btn-default">Agregar peliculas</button><br>
+            <table id="tablaPeliculas" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>IDPelicula</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </pre>
 </form>
-</pre>
 <button id="crear" type="submit" value="Submit">Submit</button>
 <button>
     <a class="button1" name="volver" style="cursor:pointer; color: #f2f2f2"

@@ -7,22 +7,7 @@
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <style>
-        button{
-            background-color: #1b26f2;
-            border: none;
-            color: white;
-            padding: 10px 27px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            -webkit-transition-duration: 0.4s; /* Safari */
-            transition-duration: 0.4s;
-        }
-    </style>
+    <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -42,6 +27,10 @@
         <td th:id="${usuario.idcliente}" class="button1" name="eliminar" style="cursor:pointer"
             OnClick="javascript:eliminar(id)">Eliminar
         </td>
+        </td>
+        <td th:id="${usuario.idcliente}" class="button1" name="verpeliculas" style="cursor:pointer"
+            OnClick="javascript:verPeliculas(id)">Ver Peliculas
+        </td>
     </tr>
 </table>
 <button>
@@ -50,7 +39,7 @@
     </a>
 </button>
 <button>
-    <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
+    <a class="button1" name="volver" style="cursor:pointer; color: #f2f2f2"
        href="/">Volver
     </a>
 </button>
@@ -77,9 +66,13 @@
             error: function (xhr, ajaxOptions, thrownError) {
                 switch (xhr.status) {
                     case 409:
-                    alert("El usuario tiene alquileres sin devolver")
+                        alert("El usuario tiene alquileres sin devolver")
                 }
             },
         });
+    }
+
+    function verPeliculas(id) {
+        window.location = "usuarios/verpeliculas?idcliente=" + id;
     }
 </script>

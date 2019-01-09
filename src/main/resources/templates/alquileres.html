@@ -1,73 +1,75 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Alquileres</title>
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-    </script>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 60%;
-        }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/filter.js" ></script>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 60%;
+            }
 
-        th, td {
-            text-align: left;
-            padding: 8px;
-        }
+            th, td {
+                text-align: left;
+                padding: 8px;
+            }
 
-        tr:nth-child(even){background-color: #f2f2f2}
+            tr:nth-child(even){background-color: #f2f2f2}
 
-        th {
-            background-color: #1b26f2;
-            color: white;
-        }
-    </style>
-    <style>
-        button {
-            background-color: #1b26f2;
-            border: none;
-            color: white;
-            padding: 10px 27px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            -webkit-transition-duration: 0.4s; /* Safari */
-            transition-duration: 0.4s;
-        }
-    </style>
-</head>
+            th {
+                background-color: #1b26f2;
+                color: white;
+            }
+        </style>
+        <style>
+            button {
+                background-color: #1b26f2;
+                border: none;
+                color: white;
+                padding: 10px 27px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
+            }
+        </style>
+    </head>
 
+<br>
 <body>
-<table>
-    <tr>
-        <th>IdAlquiler</th>
-        <th>FechaAlquilado</th>
-        <th>FechaDevolucion</th>
-        <th>DiasAlquilados</th>
-        <th>Cliente</th>
-        <th>Pelicula</th>
-
-    </tr>
-    <tr th:each="alquileres :${listaAlquileres}">
-        <td th:text="${alquileres.idalquileres}">idAlquiler</td>
-        <td th:text="${alquileres.fechaalquiler}">fechaAlquiler</td>
-        <td th:text="${alquileres.fechadevuelto}">fechaDevuelto</td>
-        <td th:text="${alquileres.diasalquilado}">diasAlquilado</td>
-        <td th:text="${alquileres.clienteByIdcliente.nombre}">cliente</td>
-        <td th:text="${alquileres.peliculasByIdpelicula.nombre}">pelicula</td>
-        <td th:id="${alquileres.idalquileres}" class="button1" name="editar" style="cursor:pointer"
-            OnClick="javascript:editar(id)">Editar
-        </td>
-        <td th:id="${alquileres.idalquileres}" class="button1" name="devolver" style="cursor:pointer"
-            OnClick="javascript:devolver(id)">Devolver
-        </td>
-    </tr>
-</table>
+<table id="tablaAlquileres">
+        <tr>
+            <th>IdAlquiler</th>
+            <th>FechaAlquilado</th>
+            <th>FechaDevolucion</th>
+            <th>DiasAlquilados</th>
+            <th>Cliente</th>
+            <th>Pelicula</th>
+        </tr>
+        <tr th:each="alquileres :${listaAlquileres}">
+            <td th:text="${alquileres.idalquileres}">idAlquiler</td>
+            <td th:text="${alquileres.fechaalquiler}">fechaAlquiler</td>
+            <td th:text="${alquileres.fechadevuelto}">fechaDevuelto</td>
+            <td th:text="${alquileres.diasalquilado}">diasAlquilado</td>
+            <td th:text="${alquileres.clienteByIdcliente.nombre}">cliente</td>
+            <td th:text="${alquileres.peliculasByIdpelicula.nombre}">pelicula</td>
+            <td th:id="${alquileres.idalquileres}" class="button1" name="editar" style="cursor:pointer"
+                OnClick="javascript:editar(id)">Editar
+            </td>
+            <td th:id="${alquileres.idalquileres}" class="button1" name="devolver" style="cursor:pointer"
+                OnClick="javascript:devolver(id)">Devolver
+            </td>
+        </tr>
+    </table>
+<input type="text" id="filtroPeliculas" onkeyup="filtrar(id,'tablaAlquileres',5)" placeholder="Filtrar por película..">
+<input type="text" id="filtroClientes" onkeyup="filtrar(id,'tablaAlquileres',4)" placeholder="Filtrar por Cliente..">
+<br>
 <button>
 <a class="button1" name="crear" style="cursor:pointer;color: #f2f2f2"
    href="/alquileres/crear">Crear
@@ -76,6 +78,11 @@
 <button>
     <a class="button1" name="verLog" style="cursor:pointer;color: #f2f2f2"
        href="/alquileres/logs">Ver Logs
+    </a>
+</button>
+<button>
+    <a class="button1" name="Ver vencidos"  style="cursor:pointer; color: #f2f2f2"
+       href="/alquileres/vencidos">Vencidos
     </a>
 </button>
 <button>

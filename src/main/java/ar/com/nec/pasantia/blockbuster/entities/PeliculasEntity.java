@@ -12,6 +12,7 @@ public class PeliculasEntity {
     private Collection<AlquileresEntity> alquileresByIdpeliculas;
     private GenerosEntity generosByIdgenero;
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idpeliculas", nullable = false)

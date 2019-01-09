@@ -13,6 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -52,6 +56,18 @@ public class AlquileresController {
         model.addAttribute("alquileres", repoAlquileres.findById(idAlquiler).get());
         return "alquileresEditar";
     }
+
+    @GetMapping("vencidos")
+    public String vencidosAlquileresPage(Model model) {
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime hoy= LocalDateTime.now();
+        Date hoyDate = new Date(dtf.format(hoy));
+        List<AlquileresEntity> alquiVencidos = repoAlquileres.findAlquileresEntityByDevueltoIsFalseAndFechadevueltoIsBefore( hoyDate);
+        model.addAttribute("listaAlquileres", alquiVencidos);
+        return "alquileresVencidos";
+    }
+
 
     @GetMapping("/{idalquileres}")
     public AlquileresEntity findOne(@PathVariable int id) {

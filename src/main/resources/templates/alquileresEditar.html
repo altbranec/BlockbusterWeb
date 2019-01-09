@@ -7,47 +7,17 @@
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <style>
-        button {
-            background-color: #1b26f2;
-            border: none;
-            color: white;
-            padding: 10px 27px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            -webkit-transition-duration: 0.4s; /* Safari */
-            transition-duration: 0.4s;
-        }
-    </style>
+    <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
 </head>
 
 <pre>
     <form id="editarForm">
     ID Alquiler:<span id="idalquiler" name="id" type="text" th:text="${alquileres.idalquileres}"/><br>
-    <div style="width:300px;">
-        Cliente: <input list="clientes" id="cliente" type="text" name="cliente"/>
-        <datalist id="clientes">
-            <option th:each="row : ${listaClientes}" th:data-value="${row.idcliente}" th:value="${row.nombre}">
-        </datalist>
-    </div>
-    <br>
-    <div style="width:300px;">
-        Pelicula: <input list="peliculas" id="pelicula" type="text" name="pelicula"/>
-        <datalist id="peliculas">
-            <option th:each="row : ${listaPeliculas}" th:data-value="${row.idpeliculas}" th:value="${row.nombre}">
-        </datalist>
-    </div>
-    <br>
-    Fecha Alquiler:<span id="fechaalquiler" name="fechaalquiler" type="date"
-                         th:text="${alquileres.fechaalquiler}"/><br>
-    Fecha Devolucion:<input type="date" id="fechadevuelto" name="fechadevuelto"
-                            th:value="${alquileres.fechadevuelto}"/><br>
-    Dias Alquilado:<input id="diasalquilado" name="diasalquilado" type="text"
-                          th:value="${alquileres.diasalquilado}"/><br>
+    Cliente: <input list="clientes" id="cliente" type="text" name="cliente"/><datalist id="clientes"><option th:each="row : ${listaClientes}" th:data-value="${row.idcliente}" th:value="${row.nombre}"></datalist><br>
+    Pelicula: <input list="peliculas" id="pelicula" type="text" name="pelicula"/><datalist id="peliculas"><option th:each="row : ${listaPeliculas}" th:data-value="${row.idpeliculas}" th:value="${row.nombre}"></datalist><br>
+    Fecha Alquiler:<span id="fechaalquiler" name="fechaalquiler" type="date" th:text="${alquileres.fechaalquiler}"/><br>
+    Fecha Devolucion:<input type="date" id="fechadevuelto" name="fechadevuelto" th:value="${alquileres.fechadevuelto}"/><br>
+    Dias Alquilado:<input id="diasalquilado" name="diasalquilado" type="text" th:value="${alquileres.diasalquilado}"/><br>
     <button type="submit" value="Submit">Submit</button>
 </form>
 </pre>

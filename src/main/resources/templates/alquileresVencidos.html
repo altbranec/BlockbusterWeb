@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vencidos</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: #1b26f2;
+            color: white;
+        }
+    </style>
+    <style>
+        button {
+            background-color: #1b26f2;
+            border: none;
+            color: white;
+            padding: 10px 27px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+<table>
+    <tr>
+        <th>IdAlquiler</th>
+        <th>FechaAlquilado</th>
+        <th>FechaDevolucion</th>
+        <th>DiasAlquilados</th>
+        <th>Cliente</th>
+        <th>Pelicula</th>
+
+    </tr>
+    <tr th:each="alquileres :${listaAlquileres}">
+        <td th:text="${alquileres.idalquileres}">idAlquiler</td>
+        <td th:text="${alquileres.fechaalquiler}">fechaAlquiler</td>
+        <td th:text="${alquileres.fechadevuelto}">fechaDevuelto</td>
+        <td th:text="${alquileres.diasalquilado}">diasAlquilado</td>
+        <td th:text="${alquileres.clienteByIdcliente.nombre}">cliente</td>
+        <td th:text="${alquileres.peliculasByIdpelicula.nombre}">pelicula</td>
+        <td th:id="${alquileres.idalquileres}" class="button1" name="editar" style="cursor:pointer"
+            OnClick="javascript:editar(id)">Editar
+        </td>
+        <td th:id="${alquileres.idalquileres}" class="button1" name="devolver" style="cursor:pointer"
+            OnClick="javascript:devolver(id)">Devolver
+        </td>
+    </tr>
+</table>
+<button>
+    <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
+       href="/alquileres">Volver
+    </a>
+</button>
+</body>
+</html>
+
+<script type="text/javascript">
+    function editar(id) {
+        window.location = "alquileres/editar?idalquiler=" + id;
+    }
+
+    function devolver(id) {
+
+        var url = '/alquileres/' + id;
+        var jsonString = JSON.stringify({idalquiler: id});
+        console.log(jsonString);
+        $.ajax({
+            type: "DELETE",
+            url: url,
+            data: jsonString,
+            success: function (msg) {
+                location.reload();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                location.reload();
+            }
+        });
+    }
+
+
+</script>
+
+<!--
+<script>
+    function calcularDias() {
+        var dateStart = new Date($("#fechaalquiler").val());
+        var dateEnd = new Date($("#fechadevuelto").val());
+        return (((dateEnd - dateStart) / 86400) / 1000);
+    }
+</script>-->

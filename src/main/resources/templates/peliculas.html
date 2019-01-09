@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Peliculas</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/filter.js" ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         button{
         background-color: #1b26f2;
@@ -13,17 +15,27 @@
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 16px;s
+        font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
         -webkit-transition-duration: 0.4s; /* Safari */
         transition-duration: 0.4s;
         }
+
+    * {
+        box-sizing: border-box;
+    }
     </style>
+    <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<table>
+
+<input type="text" id="myInputM" onkeyup="filtrar(id,'moviesTable',1)" placeholder="Buscar por película.." title="Type in a name">
+<input type="text" id="myInputG" onkeyup="filtrar(id,'moviesTable',2)" placeholder="Buscar por género.." title="Type in a name">
+
+<br>
+<table style="margin-top: 1%" id="moviesTable">
     <tr>
         <th>IdPelicula</th>
         <th>Nombre</th>
@@ -56,5 +68,6 @@
         window.location = "peliculas/editar?idpeliculas=" + id;
     }
 </script>
+
 </body>
 </html>
