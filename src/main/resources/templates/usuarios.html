@@ -6,12 +6,18 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Load the plugin bundle. -->
+    <!--<script src="filter/excel-bootstrap-table-filter-bundle.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="filter/excel-bootstrap-table-filter-style.css" />
     <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<table>
+<br>
+<table style="margin-top: 1%" id="moviesTable">
     <tr>
         <th>ID</th>
         <th>Nombre</th>

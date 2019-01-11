@@ -4,52 +4,36 @@
     <meta charset="UTF-8">
     <title>Peliculas</title>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="js/filter.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Load the plugin bundle. -->
+    <script src="filter/excel-bootstrap-table-filter-bundle.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="filter/excel-bootstrap-table-filter-style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        button{
-        background-color: #1b26f2;
-        border: none;
-        color: white;
-        padding: 10px 27px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        -webkit-transition-duration: 0.4s; /* Safari */
-        transition-duration: 0.4s;
-        }
-
-    * {
-        box-sizing: border-box;
-    }
-    </style>
     <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
 </head>
-
 <body>
-
-<input type="text" id="myInputM" onkeyup="filtrar(id,'moviesTable',1)" placeholder="Buscar por película.." title="Type in a name">
-<input type="text" id="myInputG" onkeyup="filtrar(id,'moviesTable',2)" placeholder="Buscar por género.." title="Type in a name">
-
 <br>
 <table style="margin-top: 1%" id="moviesTable">
-    <tr>
-        <th>IdPelicula</th>
-        <th>Nombre</th>
-        <th>Genero</th>
-    </tr>
-    <tr th:each="pelicula :${listaPeliculas}">
-        <td th:text="${pelicula.idpeliculas}">IdPelicula</td>
-        <td th:text="${pelicula.nombre}">Nombre</td>
-        <td th:text="${pelicula.generosByIdgenero.nombre}">Genero</td>
-        <td th:id="${pelicula.idpeliculas}" class="button1" name="button1" style="cursor:pointer"
-            OnClick="javascript:editar(id)">Editar
-        </td>
-    </tr>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Genero</th>
+            <th>Cantidad</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="pelicula :${listaDePelisConCantidad}">
+            <td th:text="${pelicula[0]}">Nombre</td>
+            <td th:text="${pelicula[1]}">Genero</td>
+            <td th:text="${pelicula[2]}">Cantidad</td>
+            <td th:text="${pelicula[3]}">Stock disponible</td>
+            </tr>
+    </tbody>
 </table>
+
+
 <button>
 <a class="button1" name="crear" style="cursor:pointer;color: #f2f2f2"
    href="/peliculas/crear">Crear
@@ -67,6 +51,9 @@
     function editar(id) {
         window.location = "peliculas/editar?idpeliculas=" + id;
     }
+    $(function () {
+        $('#moviesTable').excelTableFilter();
+    });
 </script>
 
 </body>

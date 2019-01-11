@@ -5,20 +5,24 @@ import ar.com.nec.pasantia.blockbuster.exception.AlquilerNotFoundException;
 import ar.com.nec.pasantia.blockbuster.repository.AlquilerRepository;
 import ar.com.nec.pasantia.blockbuster.repository.ClienteRepository;
 import ar.com.nec.pasantia.blockbuster.repository.PeliculasRepository;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
+import static java.time.format.DateTimeFormatter.ofPattern;
+
 
 @Controller
 @RequestMapping("/alquileres")
@@ -29,7 +33,9 @@ public class AlquileresController {
     private PeliculasRepository repoPeliculas;
     @Autowired
     private ClienteRepository repoClientes;
-    private Date releaseDate;
+
+
+    static Logger log = Logger.getLogger(AlquileresController.class.getName());
 
     @GetMapping
     public String alquileresPage(Model model) {
@@ -47,7 +53,8 @@ public class AlquileresController {
 
     @GetMapping("logs")
     public String verLogs(Model model) {
-        model.addAttribute("logs", ""); //agregar los logs
+        ArrayList<String> logs = leerLog();
+        model.addAttribute("logs", logs);
         return "alquileresLogs";
     }
 
@@ -60,10 +67,8 @@ public class AlquileresController {
     @GetMapping("vencidos")
     public String vencidosAlquileresPage(Model model) {
 
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDateTime hoy= LocalDateTime.now();
-        Date hoyDate = new Date(dtf.format(hoy));
-        List<AlquileresEntity> alquiVencidos = repoAlquileres.findAlquileresEntityByDevueltoIsFalseAndFechadevueltoIsBefore( hoyDate);
+        List<AlquileresEntity> alquiVencidos = repoAlquileres.findAlquileresEntityByDevueltoIsFalseAndFechadevueltoIsBefore(
+                new Date(ofPattern("yyyy/MM/dd").format(LocalDateTime.now())));
         model.addAttribute("listaAlquileres", alquiVencidos);
         return "alquileresVencidos";
     }
@@ -76,9 +81,17 @@ public class AlquileresController {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody List<AlquileresEntity> alquileres) {
-        for(AlquileresEntity alquiler : alquileres){
+    public ResponseEntity<?> create(@RequestBody List<AlquileresEntity> alquileres) throws IOException, SQLException {
+
+        for (AlquileresEntity alquiler : alquileres) {
             repoAlquileres.save(alquiler);
+            log.info("Alquilado - " + " Usuario: " +
+                    repoClientes.findById(alquiler.getClienteByIdcliente().getIdcliente()).get().getNombre() +
+                    " | Pelicula: " +
+                    repoPeliculas.findById(alquiler.getPeliculasByIdpelicula().getIdpeliculas()).get().getNombre() +
+                    " | Fecha de devolucion: " +
+                    repoAlquileres.findById(alquiler.getIdalquileres()).get().getFechadevuelto());
+
         }
         return new ResponseEntity(HttpStatus.CREATED);
     }
@@ -89,6 +102,10 @@ public class AlquileresController {
         AlquileresEntity alquiler = repoAlquileres.findById(id)
                 .orElseThrow(AlquilerNotFoundException::new);
         alquiler.setDevuelto(true);
+        log.info("Devuelto - " + " Usuario: " +
+                repoClientes.findById(alquiler.getClienteByIdcliente().getIdcliente()).get().getNombre() +
+                " | Pelicula: " +
+                repoPeliculas.findById(alquiler.getPeliculasByIdpelicula().getIdpeliculas()).get().getNombre());
         repoAlquileres.save(alquiler);
     }
 
@@ -97,7 +114,34 @@ public class AlquileresController {
     public AlquileresEntity updateAlquiler(@RequestBody AlquileresEntity alquiler) {
         repoAlquileres.findById(alquiler.getIdalquileres())
                 .orElseThrow(AlquilerNotFoundException::new);
+        log.info("Editado - " + " Usuario: " +
+                repoClientes.findById(alquiler.getClienteByIdcliente().getIdcliente()).get().getNombre() +
+                " | Pelicula: " +
+                repoPeliculas.findById(alquiler.getPeliculasByIdpelicula().getIdpeliculas()).get().getNombre() +
+                " | Nueva fecha de devolucion: " +
+                repoAlquileres.findById(alquiler.getIdalquileres()).get().getFechadevuelto());
         return repoAlquileres.save(alquiler);
+    }
+
+    private ArrayList<String> leerLog() {
+        File fl = new File("MyLog/log.txt");
+        ArrayList<String> logs = new ArrayList<>();
+        Scanner input;
+        try {
+            String cadena = null;
+
+            if(!fl.exists())
+                fl.createNewFile();
+
+            input = new Scanner(fl);
+            while (input.hasNextLine()){
+                logs.add(input.nextLine());
+            }
+            input.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return logs;
     }
 }
 

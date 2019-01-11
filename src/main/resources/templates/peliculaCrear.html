@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Crear Película</title>
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
@@ -15,7 +15,7 @@
             <pre>
              Nombre:<input id="nombre" type="text" name="nombre" required/><br>
              Genero:<select id="selectGenero"><option th:each="genero : ${generos}" th:value="${genero.idgeneros}" th:text="${genero.nombre}">genero</option></select>
-             Stock:<input id="stock" type="text" name="stock" required/><br>
+             Stock:<input id="stock" type="number" name="stock" min="1" style="width: 250px;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;" required/><br>
             <button type="submit" value="Submit">Submit</button> <button><a class="button1" name="Crear Genero" style="cursor:pointer; color: #f2f2f2" href="/generos/crear">Crear Género</a></button>
             </pre>
 </form>
@@ -34,21 +34,20 @@
         event.preventDefault();
         var form = $(this);
         var url = '/peliculas';
-        var peliculaData =
+        var pelicula =
             {
                 "nombre": form.find('input[name="nombre"]').val(),
                 "generosByIdgenero": {
                     "idgeneros": document.getElementById('selectGenero').value,
-                    "nombre": document.getElementById('selectGenero').textContent,
                 },
-            }
-
+                "stock" : form.find('input[name="stock"]').val(),
+            };
         var jsonString = JSON.stringify(pelicula);
         console.log(jsonString);
 
         $.ajax({
             type: 'POST',
-            url: url,
+            url: url,   
             contentType: 'application/json',
             data: jsonString,
             success: function (data, status, xhr) {

@@ -60,9 +60,6 @@
         <td th:text="${alquileres.diasalquilado}">diasAlquilado</td>
         <td th:text="${alquileres.clienteByIdcliente.nombre}">cliente</td>
         <td th:text="${alquileres.peliculasByIdpelicula.nombre}">pelicula</td>
-        <td th:id="${alquileres.idalquileres}" class="button1" name="editar" style="cursor:pointer"
-            OnClick="javascript:editar(id)">Editar
-        </td>
         <td th:id="${alquileres.idalquileres}" class="button1" name="devolver" style="cursor:pointer"
             OnClick="javascript:devolver(id)">Devolver
         </td>
@@ -77,10 +74,6 @@
 </html>
 
 <script type="text/javascript">
-    function editar(id) {
-        window.location = "alquileres/editar?idalquiler=" + id;
-    }
-
     function devolver(id) {
 
         var url = '/alquileres/' + id;
@@ -101,12 +94,3 @@
 
 
 </script>
-
-<!--
-<script>
-    function calcularDias() {
-        var dateStart = new Date($("#fechaalquiler").val());
-        var dateEnd = new Date($("#fechadevuelto").val());
-        return (((dateEnd - dateStart) / 86400) / 1000);
-    }
-</script>-->

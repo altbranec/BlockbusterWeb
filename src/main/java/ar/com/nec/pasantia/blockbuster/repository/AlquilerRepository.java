@@ -14,6 +14,6 @@ public interface AlquilerRepository extends CrudRepository<AlquileresEntity, Int
     List<AlquileresEntity> findAlquileresEntityByDevueltoIsFalseAndFechadevueltoIsBefore(Date hoy);
     List<AlquileresEntity> findAlquileresEntityByDevueltoIsFalse();
     List<AlquileresEntity> findAlquileresEntityByClienteByIdclienteIsAndDevueltoIsFalse(Optional<ClienteEntity> client);
-   boolean existsAlquileresEntityByClienteByIdclienteAndDevueltoIsFalse(ClienteEntity clienteEntity);
+    boolean existsAlquileresEntityByClienteByIdclienteAndDevueltoIsFalse(ClienteEntity clienteEntity);
 
 }

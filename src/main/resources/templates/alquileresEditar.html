@@ -6,18 +6,17 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
     <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
 </head>
 
 <pre>
     <form id="editarForm">
     ID Alquiler:<span id="idalquiler" name="id" type="text" th:text="${alquileres.idalquileres}"/><br>
-    Cliente: <input list="clientes" id="cliente" type="text" name="cliente"/><datalist id="clientes"><option th:each="row : ${listaClientes}" th:data-value="${row.idcliente}" th:value="${row.nombre}"></datalist><br>
-    Pelicula: <input list="peliculas" id="pelicula" type="text" name="pelicula"/><datalist id="peliculas"><option th:each="row : ${listaPeliculas}" th:data-value="${row.idpeliculas}" th:value="${row.nombre}"></datalist><br>
-    Fecha Alquiler:<span id="fechaalquiler" name="fechaalquiler" type="date" th:text="${alquileres.fechaalquiler}"/><br>
-    Fecha Devolucion:<input type="date" id="fechadevuelto" name="fechadevuelto" th:value="${alquileres.fechadevuelto}"/><br>
-    Dias Alquilado:<input id="diasalquilado" name="diasalquilado" type="text" th:value="${alquileres.diasalquilado}"/><br>
+    Cliente: <span th:text="${alquileres.clienteByIdcliente.nombre}" id="cliente" type="text" name="cliente"/> <br>
+    Pelicula: <span th:text="${alquileres.peliculasByIdpelicula.nombre}" id="pelicula" type="text" name="pelicula"/><br>
+    Fecha Alquiler:<input th:value="${alquileres.fechaalquiler}" id="fechaalquiler" type="date" name="fechaalquiler"  readonly/><br>
+   Fecha Devolucion:<input th:value="${alquileres.fechadevuelto}" id="fechadevuelto" type="date" name="fechadevuelto" min=today max="2019-12-31" required/><br>
     <button type="submit" value="Submit">Submit</button>
 </form>
 </pre>
@@ -29,33 +28,45 @@
 </body>
 </html>
 
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
 
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("fechadevuelto").setAttribute("min", today);
+</script>
+<script>
+    function calcularDias() {
+        var dateStart = new Date($("#fechaalquiler").val());
+        var dateEnd = new Date($("#fechadevuelto").val());
+        return (((dateEnd - dateStart) / 86400) / 1000);
+    }
+</script>
 <script>
     $("#editarForm").submit(function (event) {
         event.preventDefault();
         var form = $(this);
         var url = '/alquileres';
-        var peli2send = document.querySelector("#peliculas option[value='" +
-            document.getElementById("pelicula").value +
-            "']").dataset.value;
-        var user2send = document.querySelector("#clientes option[value='" +
-            document.getElementById("cliente").value
-            + "']").dataset.value;
         var alquiler =
             {
-
                 "idalquileres": [[${alquileres.idalquileres}]],
                 "clienteByIdcliente": {
-                    "idcliente": user2send,
+                    "idcliente": [[${alquileres.clienteByIdcliente.idcliente}]],
                 },
                 "peliculasByIdpelicula": {
-                    "idpeliculas": peli2send,
+                    "idpeliculas": [[${alquileres.peliculasByIdpelicula.idpeliculas}]],
                 },
-                "fechaalquiler": $("#fechaalquiler").text(),
-                "fechadevuelto": form.find('input[name="fechadevuelto"]').val(),
-                "diasalquilado": form.find('input[name="diasalquilado"]').val(),
-
-
+                "fechaalquiler": $("#fechaalquiler").val(),
+                "fechadevuelto": $("#fechadevuelto").val(),
+                "diasalquilado": calcularDias(),
             }
 
         var jsonString = JSON.stringify(alquiler);

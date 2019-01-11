@@ -3,47 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Alquileres</title>
+    <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/filter.js" ></script>
-        <style>
-            table {
-                border-collapse: collapse;
-                width: 60%;
-            }
-
-            th, td {
-                text-align: left;
-                padding: 8px;
-            }
-
-            tr:nth-child(even){background-color: #f2f2f2}
-
-            th {
-                background-color: #1b26f2;
-                color: white;
-            }
-        </style>
-        <style>
-            button {
-                background-color: #1b26f2;
-                border: none;
-                color: white;
-                padding: 10px 27px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 4px 2px;
-                cursor: pointer;
-                -webkit-transition-duration: 0.4s; /* Safari */
-                transition-duration: 0.4s;
-            }
-        </style>
-    </head>
+    <!-- Load the plugin bundle. -->
+    <script src="filter/excel-bootstrap-table-filter-bundle.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="filter/excel-bootstrap-table-filter-style.css" />
+    <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
+</head>
 
 <br>
 <body>
 <table id="tablaAlquileres">
+    <thead>
         <tr>
             <th>IdAlquiler</th>
             <th>FechaAlquilado</th>
@@ -52,6 +24,8 @@
             <th>Cliente</th>
             <th>Pelicula</th>
         </tr>
+    </thead>
+    <tbody>
         <tr th:each="alquileres :${listaAlquileres}">
             <td th:text="${alquileres.idalquileres}">idAlquiler</td>
             <td th:text="${alquileres.fechaalquiler}">fechaAlquiler</td>
@@ -66,14 +40,13 @@
                 OnClick="javascript:devolver(id)">Devolver
             </td>
         </tr>
+    </tbody>
     </table>
-<input type="text" id="filtroPeliculas" onkeyup="filtrar(id,'tablaAlquileres',5)" placeholder="Filtrar por película..">
-<input type="text" id="filtroClientes" onkeyup="filtrar(id,'tablaAlquileres',4)" placeholder="Filtrar por Cliente..">
 <br>
 <button>
-<a class="button1" name="crear" style="cursor:pointer;color: #f2f2f2"
-   href="/alquileres/crear">Crear
-</a>
+    <a class="button1" name="crear" style="cursor:pointer;color: #f2f2f2"
+       href="/alquileres/crear">Crear
+    </a>
 </button>
 <button>
     <a class="button1" name="verLog" style="cursor:pointer;color: #f2f2f2"
@@ -81,19 +54,23 @@
     </a>
 </button>
 <button>
-    <a class="button1" name="Ver vencidos"  style="cursor:pointer; color: #f2f2f2"
+    <a class="button1" name="Ver vencidos" style="cursor:pointer; color: #f2f2f2"
        href="/alquileres/vencidos">Vencidos
     </a>
 </button>
 <button>
-    <a class="button1" name="volver"  style="cursor:pointer; color: #f2f2f2"
+    <a class="button1" name="volver" style="cursor:pointer; color: #f2f2f2"
        href="/">Volver
     </a>
 </button>
 </body>
 </html>
 
+
 <script type="text/javascript">
+    $(function () {
+        $('#tablaAlquileres').excelTableFilter();
+    });
     function editar(id) {
         window.location = "alquileres/editar?idalquiler=" + id;
     }

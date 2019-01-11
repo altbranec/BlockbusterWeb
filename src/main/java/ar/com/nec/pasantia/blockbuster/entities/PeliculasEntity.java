@@ -1,7 +1,9 @@
 package ar.com.nec.pasantia.blockbuster.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -41,6 +43,13 @@ public class PeliculasEntity {
         PeliculasEntity that = (PeliculasEntity) o;
         return idpeliculas == that.idpeliculas &&
                 Objects.equals(nombre, that.nombre);
+    }
+
+    public List<String> toList() {
+       List<String> aRetornar = new ArrayList<>();
+       aRetornar.add(nombre);
+       aRetornar.add(generosByIdgenero.getNombre());
+       return aRetornar;
     }
 
     @Override

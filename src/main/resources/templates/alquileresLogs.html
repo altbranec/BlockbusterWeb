@@ -3,46 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Logs</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 60%;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2
-        }
-
-        th {
-            background-color: #1b26f2;
-            color: white;
-        }
-    </style>
-    <style>
-        button {
-            background-color: #1b26f2;
-            border: none;
-            color: white;
-            padding: 10px 27px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            -webkit-transition-duration: 0.4s; /* Safari */
-            transition-duration: 0.4s;
-        }
-    </style>
+    <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+    <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
 </head>
-
 <body>
-<span th:text="${logs}"></span>
+<table>
+    <tr>
+        <th>Mensajes</th>
+    </tr>
+    <tr th:each="logs :${logs}">
+        <td th:text="${logs}">Mensajes</td>
+    </tr>
+</table>
 <button>
     <a class="button1" name="volver" style="cursor:pointer; color: #f2f2f2"
        href="/alquileres">Volver
