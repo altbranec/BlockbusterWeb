@@ -7,20 +7,23 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
+    <script type="text/javascript" th:src="@{/js/moment.js}"></script>
+	
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
 </head>
 <form id="crearForm">
         <pre>
-            Cliente: <input list="clientes" id="cliente" type="text" name="cliente" required/><datalist id="clientes"><option
-                th:each="row : ${listaClientes}" th:data-value="${row.idcliente}"
-                th:value="${row.nombre}"></datalist><br>
+            Cliente: <input autocomplete="off" list="clientes" id="cliente" type="text" name="cliente" required/>
+            <datalist id="clientes">
+                <option th:each="row : ${listaClientes}" th:data-value="${row.idcliente}" th:text="${row.dni}" th:value="${row.nombre}">
+            </datalist><br>
             Fecha Alquiler:<input id="fechaalquiler" type="date" name="fechaalquiler" readonly/><br>
             Fecha Devolucion:<input id="fechadevuelto" type="date" name="fechadevuelto" min=today max="2019-12-31"
                                     required/><br>
-            Pelicula: <input list="peliculas" id="pelicula" type="text" name="pelicula"/>
+            Pelicula: <input autocomplete="off" list="peliculas" id="pelicula" type="text" name="pelicula"/>
             <datalist id="peliculas">
-                <option th:each="row : ${listaPeliculas}" th:data-value="${row.idpeliculas}" th:value="${row.nombre}">
+                <option th:each="row : ${listaPeliculas}"  th:value="${row.nombre}" th:data-value="${row.idpeliculas}">
             </datalist><br>
             <button style="margin-bottom:10px" type="submit" class="btn btn-default">Agregar peliculas</button><br>
             <table id="tablaPeliculas" class="table table-bordered table-hover">
@@ -93,6 +96,13 @@
 
         // store customer
         listaPeliculas.push(peli);
+        //sacar opcion del select
+        $("#peliculas option[value='"+document.getElementById ("pelicula").value +"']").remove();
+
+        // Aca sacar peli pusheada del options
+
+
+
 
         // re-render customer table by append new customer to table
 
@@ -120,18 +130,24 @@
     });
     $(document).on("click", "a", function () {
         var peliculaId = $(this).parent().find('input').val();
+        var datalist = document.getElementById("peliculas");
+        var nuevaOpcion = document.createElement('option');
+        nuevaOpcion.value = listaPeliculas[peliculaId].nombre;
+        nuevaOpcion.setAttribute('data-value',listaPeliculas[peliculaId].idpeliculas);
+        datalist.appendChild(nuevaOpcion);
         listaPeliculas.splice(peliculaId, 1);
         $(this).closest("tr").remove()
     });
 
     $("#crear").click(function (event) {
         event.preventDefault();
-        var form = $(this);
         var url = '/alquileres';
         var listaEnviar = [];
         var user2send = document.querySelector("#clientes option[value='" +
             document.getElementById("cliente").value
             + "']").dataset.value;
+		var dias = calcularDias();
+
         listaPeliculas.forEach(function (pelicula) {
             var alquiler =
                 {
@@ -141,10 +157,9 @@
                     "peliculasByIdpelicula": {
                         "idpeliculas": pelicula.idpeliculas,
                     },
-                    "fechaalquiler": $("#fechaalquiler").val(),
-                    "fechadevuelto": $("#fechadevuelto").val(),
-                    "diasalquilado": calcularDias(),
-
+                    "fechaalquiler": moment().utc().subtract(3,'hours').add(1,'days').format().replace(/T.+/, ''),
+                    "fechadevuelto": moment().utc().subtract(3,'hours').add(dias+1,'days').format().replace(/T.+/, ''),
+                    "diasalquilado": dias,
 
                 }
             listaEnviar.push(alquiler);

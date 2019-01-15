@@ -31,7 +31,8 @@ public class ClienteController {
 
     @GetMapping
     public String usuariosPage(Model model) {
-        model.addAttribute("listaUsuarios", repoClientes.findAll());
+
+        model.addAttribute("listaUsuarios", repoClientes.findAllByActivoIsTrue());
         return "usuarios";
     }
 
@@ -66,13 +67,18 @@ public class ClienteController {
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody ClienteEntity cliente) {
-        if (repoClientes.existsClienteEntityByDni(cliente.getDni())) {
-            return new ResponseEntity<String>(HttpStatus.CONFLICT);
+        Optional<ClienteEntity> cliActual = Optional.ofNullable(repoClientes.findClienteEntityByDni(cliente.getDni()));
+        if (cliActual.isPresent()) {
+            if (cliActual.get().getActivo()) {
+                return new ResponseEntity<String>(HttpStatus.CONFLICT);
+            } else {
+                cliActual.get().setActivo(true);
+                repoClientes.save(cliActual.get());
+            }
         } else {
             repoClientes.save(cliente);
-            return new ResponseEntity(HttpStatus.CREATED);
         }
-
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
@@ -80,9 +86,10 @@ public class ClienteController {
         if (repoAlquileres.existsAlquileresEntityByClienteByIdclienteAndDevueltoIsFalse(repoClientes.findById(id).get())) {
             return new ResponseEntity<String>(HttpStatus.CONFLICT);
         } else {
-            repoClientes.findById(id)
+            ClienteEntity cliActual = repoClientes.findById(id)
                     .orElseThrow(ClienteNotFoundException::new);
-            repoClientes.deleteById(id);
+            cliActual.setActivo(false);
+            repoClientes.save(cliActual);
             return new ResponseEntity(HttpStatus.OK);
         }
 

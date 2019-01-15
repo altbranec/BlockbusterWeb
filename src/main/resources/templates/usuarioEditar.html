@@ -12,7 +12,6 @@
 
 <pre>
     <form id="editarForm" >
-    <
         IDCliente:<span id="id" name = "id" type="text" th:text="${usuario.idcliente}"/><br>
         Nombre: <input id="nombre" type="text" pattern="^[a-zA-Z ]+$" name="nombre" th:value="${usuario.nombre}" required/><br>
         DNI: <input id="dni" type="text" min="1000000" max="99999999" name="dni" th:value="${usuario.dni}" required/><br>

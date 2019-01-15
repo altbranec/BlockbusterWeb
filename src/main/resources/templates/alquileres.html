@@ -39,6 +39,9 @@
             <td th:id="${alquileres.idalquileres}" class="button1" name="devolver" style="cursor:pointer"
                 OnClick="javascript:devolver(id)">Devolver
             </td>
+            <td th:id="${alquileres.clienteByIdcliente.idcliente}" class="button1" name="vercliente" style="cursor:pointer"
+                OnClick="javascipt:vercliente(id)">Ver Cliente
+            </td>
         </tr>
     </tbody>
     </table>
@@ -91,5 +94,9 @@
                 location.reload();
             }
         });
+    }
+
+    function vercliente(id) {
+        window.location = "alquileres/verCliente?idcliente=" + id;
     }
 </script>

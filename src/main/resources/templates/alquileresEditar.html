@@ -6,6 +6,7 @@
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
+    <script type="text/javascript" th:src="@{/js/moment.js}"></script>
     <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
     <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
 </head>
@@ -55,6 +56,7 @@
         event.preventDefault();
         var form = $(this);
         var url = '/alquileres';
+		var dias = calcularDias();
         var alquiler =
             {
                 "idalquileres": [[${alquileres.idalquileres}]],
@@ -64,9 +66,9 @@
                 "peliculasByIdpelicula": {
                     "idpeliculas": [[${alquileres.peliculasByIdpelicula.idpeliculas}]],
                 },
-                "fechaalquiler": $("#fechaalquiler").val(),
-                "fechadevuelto": $("#fechadevuelto").val(),
-                "diasalquilado": calcularDias(),
+                "fechaalquiler": moment($("#fechaalquiler").val()).add(1,'days').format().replace(/T.+/, ''),
+                "fechadevuelto": moment($("#fechaalquiler").val()).add(dias+1,'days').format().replace(/T.+/, ''),
+                "diasalquilado": dias,
             }
 
         var jsonString = JSON.stringify(alquiler);

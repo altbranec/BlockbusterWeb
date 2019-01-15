@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Cliente</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/styleButton.css" th:href="@{/css/styleButton.css}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <pre>
+    <form id="verClienteForm">
+        ID Cliente: <span id="id" name = "id" type="text" th:text="${cliente.idcliente}"/><br>
+        Nombre: <span id="nombre" name = "nombre" type="text" th:text="${cliente.nombre}"/><br>
+        DNI: <span id="dni" name = "dni" type="text" th:text="${cliente.dni}"/><br>
+    </form>
+        </pre>
+    <br>
+    <button>
+        <a class="button" name="volver"  style="cursor:pointer; color: #f2f2f2"
+           href="/alquileres">Volver
+        </a>
+    </button>
+</body>
+</html>

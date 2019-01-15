@@ -29,6 +29,9 @@
             <td th:text="${pelicula[1]}">Genero</td>
             <td th:text="${pelicula[2]}">Cantidad</td>
             <td th:text="${pelicula[3]}">Stock disponible</td>
+            <td th:id="${pelicula[0]}" class="button1" name="editar" style="cursor:pointer"
+                OnClick="javascript:desactivar(id)">Dar de baja un ejemplar
+            </td>
             </tr>
     </tbody>
 </table>
@@ -48,8 +51,21 @@
 </html>
 
 <script type="text/javascript">
-    function editar(id) {
-        window.location = "peliculas/editar?idpeliculas=" + id;
+    function desactivar(nombre) {
+        var url = '/peliculas/' + nombre;
+        $.ajax({
+            type: "DELETE",
+            url: url,
+            success: function (msg) {
+                location.reload();
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                switch (xhr.status) {
+                    case 409:
+                        alert("Todas las peliculas estan alquiladas")
+                }
+            }
+        });
     }
     $(function () {
         $('#moviesTable').excelTableFilter();

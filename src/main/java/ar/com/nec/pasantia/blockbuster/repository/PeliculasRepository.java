@@ -7,9 +7,8 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface PeliculasRepository extends CrudRepository<PeliculasEntity, Integer> {
-
     List<PeliculasEntity> findPeliculasEntityByIdpeliculas(int Id);
-    List<PeliculasEntity> findAllByOrderByNombreAsc();
-    List<PeliculasEntity> findPeliculasEntityOrOrderByNombre(List<AlquileresEntity> pelisSinAlquilar);
+    List<PeliculasEntity> findAllByActivoIsTrueOrderByNombreAsc();
+    List<PeliculasEntity> findByActivoIsTrueAndNombre(String nombre);
 
 }

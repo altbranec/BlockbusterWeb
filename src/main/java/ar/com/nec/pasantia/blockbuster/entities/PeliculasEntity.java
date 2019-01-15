@@ -1,10 +1,14 @@
 package ar.com.nec.pasantia.blockbuster.entities;
 
+import ar.com.nec.pasantia.blockbuster.repository.AlquilerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+
 
 @Entity
 @Table(name = "peliculas", schema = "blockbusterweb", catalog = "")
@@ -13,6 +17,7 @@ public class PeliculasEntity {
     private String nombre;
     private Collection<AlquileresEntity> alquileresByIdpeliculas;
     private GenerosEntity generosByIdgenero;
+    private boolean activo = true;
 
 
     @Id
@@ -36,6 +41,16 @@ public class PeliculasEntity {
         this.nombre = nombre;
     }
 
+    @Basic
+    @Column(name = "activo", nullable = false)
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -50,6 +65,16 @@ public class PeliculasEntity {
        aRetornar.add(nombre);
        aRetornar.add(generosByIdgenero.getNombre());
        return aRetornar;
+    }
+
+    public boolean verSiEstaAlquilada(AlquilerRepository repoAlquileres) {
+        List<AlquileresEntity> alquileresSinDevolver = repoAlquileres.findAlquileresEntityByDevueltoIsFalse();
+        List<PeliculasEntity> pelisSinDevolver = new ArrayList<>();
+        for (AlquileresEntity alqui : alquileresSinDevolver) {
+            pelisSinDevolver.add(alqui.getPeliculasByIdpelicula());
+        }
+
+        return pelisSinDevolver.contains(this);
     }
 
     @Override

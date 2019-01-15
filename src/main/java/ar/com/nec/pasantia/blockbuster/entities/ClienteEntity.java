@@ -11,6 +11,7 @@ public class ClienteEntity {
     private String nombre;
     private String dni;
     private Collection<AlquileresEntity> alquileresByIdcliente;
+    private boolean activo = true;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,6 +42,15 @@ public class ClienteEntity {
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    @Basic
+    @Column(name = "activo", nullable = false)
+
+    public boolean getActivo() { return activo; }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package ar.com.nec.pasantia.blockbuster.controller;
 
 import ar.com.nec.pasantia.blockbuster.entities.AlquileresEntity;
+import ar.com.nec.pasantia.blockbuster.entities.PeliculasEntity;
 import ar.com.nec.pasantia.blockbuster.exception.AlquilerNotFoundException;
 import ar.com.nec.pasantia.blockbuster.repository.AlquilerRepository;
 import ar.com.nec.pasantia.blockbuster.repository.ClienteRepository;
@@ -16,11 +17,12 @@ import org.springframework.web.bind.annotation.*;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
+import java.util.*;
+
 import static java.time.format.DateTimeFormatter.ofPattern;
 
 
@@ -46,8 +48,21 @@ public class AlquileresController {
 
     @GetMapping("crear")
     public String crearAlquiler(Model model) {
-        model.addAttribute("listaPeliculas", repoPeliculas.findAll());
-        model.addAttribute("listaClientes", repoClientes.findAll());
+        List<PeliculasEntity> pelisPorNombre = repoPeliculas.findAllByActivoIsTrueOrderByNombreAsc();
+        List<PeliculasEntity> listaDePelisConStock = new ArrayList<>();
+        PeliculasEntity peliAnterior = null;
+
+        for (PeliculasEntity pelicula : pelisPorNombre) {
+            if((peliAnterior == null || !peliAnterior.getNombre().equals(pelicula.getNombre())) &&
+                    !pelicula.verSiEstaAlquilada(repoAlquileres)) {
+                listaDePelisConStock.add(pelicula);
+                peliAnterior = pelicula;
+            }
+        }
+
+        model.addAttribute("listaPeliculas", listaDePelisConStock);
+        model.addAttribute("listaClientes", repoClientes.findAllByActivoIsTrue());
+
         return "alquileresCrear";
     }
 
@@ -68,16 +83,21 @@ public class AlquileresController {
     public String vencidosAlquileresPage(Model model) {
 
         List<AlquileresEntity> alquiVencidos = repoAlquileres.findAlquileresEntityByDevueltoIsFalseAndFechadevueltoIsBefore(
-                new Date(ofPattern("yyyy/MM/dd").format(LocalDateTime.now())));
+                 Calendar.getInstance().getTime());
         model.addAttribute("listaAlquileres", alquiVencidos);
         return "alquileresVencidos";
     }
-
 
     @GetMapping("/{idalquileres}")
     public AlquileresEntity findOne(@PathVariable int id) {
         return repoAlquileres.findById(id)
                 .orElseThrow(AlquilerNotFoundException::new);
+    }
+
+    @GetMapping("verCliente")
+    public String verCliente(@RequestParam("idcliente") int idCliente, Model model) {
+        model.addAttribute("cliente", repoClientes.findById(idCliente).get());
+        return "verCliente";
     }
 
     @PostMapping
@@ -109,7 +129,6 @@ public class AlquileresController {
         repoAlquileres.save(alquiler);
     }
 
-
     @PutMapping
     public AlquileresEntity updateAlquiler(@RequestBody AlquileresEntity alquiler) {
         repoAlquileres.findById(alquiler.getIdalquileres())
@@ -130,11 +149,11 @@ public class AlquileresController {
         try {
             String cadena = null;
 
-            if(!fl.exists())
+            if (!fl.exists())
                 fl.createNewFile();
 
             input = new Scanner(fl);
-            while (input.hasNextLine()){
+            while (input.hasNextLine()) {
                 logs.add(input.nextLine());
             }
             input.close();
