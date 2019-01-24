@@ -72,7 +72,7 @@
             error: function (xhr, ajaxOptions, thrownError) {
                 switch (xhr.status) {
                     case 409:
-                        alert("El usuario tiene alquileres sin devolver")
+                        alert(xhr.responseText)
                 }
             },
         });

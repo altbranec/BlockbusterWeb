@@ -1,8 +1,5 @@
 package ar.com.nec.pasantia.blockbuster.entities;
 
-import ar.com.nec.pasantia.blockbuster.repository.AlquilerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,6 +16,23 @@ public class PeliculasEntity {
     private GenerosEntity generosByIdgenero;
     private boolean activo = true;
 
+
+    public PeliculasEntity(int idpeliculas, String nombre, boolean activo, GenerosEntity generosByIdgenero) {
+        this.idpeliculas = idpeliculas;
+        this.nombre = nombre;
+        this.activo = activo;
+        this.generosByIdgenero = generosByIdgenero;
+    }
+
+    public PeliculasEntity(String nombre, boolean activo, GenerosEntity generosByIdgenero) {
+        this.nombre = nombre;
+        this.activo = activo;
+        this.generosByIdgenero = generosByIdgenero;
+    }
+
+    public PeliculasEntity() {
+
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,14 +55,12 @@ public class PeliculasEntity {
         this.nombre = nombre;
     }
 
-    @Basic
-    @Column(name = "activo", nullable = false)
-    public boolean isActivo() {
-        return activo;
-    }
-
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    public boolean getActivo() {
+        return this.activo;
     }
 
     @Override
@@ -61,21 +73,12 @@ public class PeliculasEntity {
     }
 
     public List<String> toList() {
-       List<String> aRetornar = new ArrayList<>();
-       aRetornar.add(nombre);
-       aRetornar.add(generosByIdgenero.getNombre());
-       return aRetornar;
+        List<String> aRetornar = new ArrayList<>();
+        aRetornar.add(nombre);
+        aRetornar.add(generosByIdgenero.getNombre());
+        return aRetornar;
     }
 
-    public boolean verSiEstaAlquilada(AlquilerRepository repoAlquileres) {
-        List<AlquileresEntity> alquileresSinDevolver = repoAlquileres.findAlquileresEntityByDevueltoIsFalse();
-        List<PeliculasEntity> pelisSinDevolver = new ArrayList<>();
-        for (AlquileresEntity alqui : alquileresSinDevolver) {
-            pelisSinDevolver.add(alqui.getPeliculasByIdpelicula());
-        }
-
-        return pelisSinDevolver.contains(this);
-    }
 
     @Override
     public int hashCode() {

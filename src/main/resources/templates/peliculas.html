@@ -25,11 +25,11 @@
     </thead>
     <tbody>
         <tr th:each="pelicula :${listaDePelisConCantidad}">
-            <td th:text="${pelicula[0]}">Nombre</td>
-            <td th:text="${pelicula[1]}">Genero</td>
-            <td th:text="${pelicula[2]}">Cantidad</td>
-            <td th:text="${pelicula[3]}">Stock disponible</td>
-            <td th:id="${pelicula[0]}" class="button1" name="editar" style="cursor:pointer"
+            <td th:text="${pelicula.pelicula.nombre}">Nombre</td>
+            <td th:text="${pelicula.pelicula.generosByIdgenero.nombre}">Genero</td>
+            <td th:text="${pelicula.cantidad}">Cantidad</td>
+            <td th:text="${pelicula.stock}">Stock disponible</td>
+            <td th:id="${pelicula.pelicula.nombre}" class="button1" name="editar" style="cursor:pointer"
                 OnClick="javascript:desactivar(id)">Dar de baja un ejemplar
             </td>
             </tr>
@@ -62,7 +62,7 @@
             error: function (xhr, textStatus, errorThrown) {
                 switch (xhr.status) {
                     case 409:
-                        alert("Todas las peliculas estan alquiladas")
+                        alert(xhr.responseText)
                 }
             }
         });

@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/services/PeliculasService.java" line="58" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ff604599-5658-4097-afd6-688f977013aa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/SimpleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/SimpleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/DTO/PeliculaCrearDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/DTO/PeliculaCrearDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/AlquileresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/AlquileresController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/GenerosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/GenerosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/PeliculasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/PeliculasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/AlquileresEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/AlquileresEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/ClienteEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/ClienteEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/GenerosEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/GenerosEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/PeliculasEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/PeliculasEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/RestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/RestExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/AlquilerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/ClienteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/GenerosRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/GenerosRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/PeliculasRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/PeliculasRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/alquileres.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/alquileres.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/alquileresCrear.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/alquileresCrear.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/peliculas.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/peliculas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/usuarioCrear.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/usuarioCrear.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/usuarios.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/usuarios.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -12,6 +40,18 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/blockbuster$ClienteServiceTest.ic" NAME="ClienteServiceTest Coverage Results" MODIFIED="1548166921046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ar.com.nec.pasantia.blockbuster.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/blockbuster$ar_com_nec_pasantia_blockbuster_in_blockbuster.ic" NAME="ar.com.nec.pasantia.blockbuster in blockbuster Coverage Results" MODIFIED="1548248673186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ar.com.nec.pasantia.blockbuster.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/blockbuster$All_in_blockbuster.ic" NAME="All in blockbuster Coverage Results" MODIFIED="1548164171728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="236" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -30,34 +70,42 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/ClienteController.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/services/MyServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/usuarioEditar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+            <state relative-caret-position="294">
+              <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/usuarios.html">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+            <state relative-caret-position="-924">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/PeliculasEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
               <folding>
-                <element signature="n#style#0;n#td#4;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1166#1167#0" expanded="true" />
+                <element signature="e#1200#1201#0" expanded="true" />
+                <element signature="e#1251#1252#0" expanded="true" />
+                <element signature="e#1297#1298#0" expanded="true" />
+                <element signature="e#1401#1402#0" expanded="true" />
+                <element signature="e#1430#1431#0" expanded="true" />
+                <element signature="e#1474#1475#0" expanded="true" />
+                <element signature="e#1510#1511#0" expanded="true" />
+                <element signature="e#1555#1556#0" expanded="true" />
+                <element signature="e#1591#1592#0" expanded="true" />
+                <element signature="e#1625#1626#0" expanded="true" />
+                <element signature="e#1659#1660#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,7 +124,9 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -84,20 +134,44 @@
         <option value="$PROJECT_DIR$/src/main/java/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/PersistenceContext.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/ErrorHandlerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/BlockbusterApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/PeliculasRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/ClienteController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/ClienteNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/PeliculaNotFoundException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/PeliculasController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/PeliculaIdMismatchException.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/usuarioEditar.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/peliculaEditar.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/peliculas.html" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/SimpleController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/usuarios.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/js/filter.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/test.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/peliculaEditar.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/peliculaCrear.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/js/multifilter.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/alquileres.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/style.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/alquileresVencidos.html" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/AlquilerRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/PeliculasRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/DTO/PeliculasStockCantidadDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/peliculas.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/alquileresCrear.html" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/ClienteEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/ClienteRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/ClienteFoundException.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/usuarioCrear.html" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/RestExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/services/ClienteService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/GenerosController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/AlquileresController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/PeliculasController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/services/PeliculasService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/ClienteController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/PeliculasEntity.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/services/ClienteServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/services/AlquileresService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/services/MyServiceTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -110,17 +184,26 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="blockbuster" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="blockbuster" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="1890" />
-    <option name="height" value="1416" />
+    <option name="x" value="-7" />
+    <option name="width" value="740" />
+    <option name="height" value="991" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
@@ -128,8 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -170,15 +251,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="blockbuster" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blockbuster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlockbusterWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="blockbuster" type="462c0819:PsiDirectoryNode" />
               <item name="entities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -188,7 +260,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="blockbuster" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="blockbuster" type="b2602c69:ProjectViewProjectNode" />
@@ -201,14 +273,47 @@
               <item name="blockbuster" type="b2602c69:ProjectViewProjectNode" />
               <item name="BlockbusterWeb" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blockbuster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlockbusterWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blockbuster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlockbusterWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blockbuster" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blockbuster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlockbusterWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blockbuster" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blockbuster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlockbusterWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blockbuster" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -222,16 +327,17 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546005999117" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548336094377" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="coverage" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="ImportMappingsDialog.RecentPackages">
@@ -253,7 +359,60 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ar.com.nec.pasantia.blockbuster in blockbuster">
+    <configuration name="All in blockbuster" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blockbuster" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClienteServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blockbuster" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.com.nec.pasantia.blockbuster.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ar.com.nec.pasantia.blockbuster.services" />
+      <option name="MAIN_CLASS_NAME" value="ar.com.nec.pasantia.blockbuster.services.ClienteServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClienteServiceTest.encontrarPorId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blockbuster" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.com.nec.pasantia.blockbuster.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ar.com.nec.pasantia.blockbuster.services" />
+      <option name="MAIN_CLASS_NAME" value="ar.com.nec.pasantia.blockbuster.services.ClienteServiceTest" />
+      <option name="METHOD_NAME" value="encontrarPorId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ar.com.nec.pasantia.blockbuster in blockbuster" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blockbuster" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ar.com.nec.pasantia.blockbuster.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ar.com.nec.pasantia.blockbuster" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BlockbusterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="blockbuster" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ar.com.nec.pasantia.blockbuster.BlockbusterApplication" />
@@ -272,6 +431,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ar.com.nec.pasantia.blockbuster in blockbuster" />
+        <item itemvalue="JUnit.ClienteServiceTest" />
+        <item itemvalue="JUnit.All in blockbuster" />
+        <item itemvalue="JUnit.ClienteServiceTest.encontrarPorId" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpringRepositoriesView">
     <option name="showModules" value="false" />
@@ -292,17 +459,109 @@
       <workItem from="1545998860816" duration="294000" />
       <workItem from="1545999181587" duration="5838000" />
       <workItem from="1546007405988" duration="2832000" />
+      <workItem from="1546950666157" duration="12042000" />
+      <workItem from="1547035366524" duration="13881000" />
+      <workItem from="1547122663139" duration="13520000" />
+      <workItem from="1547467964371" duration="1178000" />
+      <workItem from="1547470075900" duration="13106000" />
+      <workItem from="1547640912962" duration="107000" />
+      <workItem from="1547641202198" duration="2336000" />
+      <workItem from="1547731080744" duration="6033000" />
+      <workItem from="1547813835315" duration="6788000" />
+      <workItem from="1548071603582" duration="11299000" />
+      <workItem from="1548158542298" duration="7607000" />
+      <workItem from="1548166720873" duration="797000" />
+      <workItem from="1548247913084" duration="1381000" />
+      <workItem from="1548335169619" duration="883000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="ar_com_nec_pasantia_blockbuster_in_blockbuster - 2019.01.22 at 11h 07m 29s.xml">
+      <configuration name="ar.com.nec.pasantia.blockbuster in blockbuster" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ar_com_nec_pasantia_blockbuster_in_blockbuster - 2019.01.22 at 11h 10m 12s.xml">
+      <configuration name="ar.com.nec.pasantia.blockbuster in blockbuster" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ar_com_nec_pasantia_blockbuster_in_blockbuster - 2019.01.22 at 11h 12m 18s.xml">
+      <configuration name="ar.com.nec.pasantia.blockbuster in blockbuster" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ar_com_nec_pasantia_blockbuster_in_blockbuster - 2019.01.22 at 11h 13m 02s.xml">
+      <configuration name="ar.com.nec.pasantia.blockbuster in blockbuster" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ar_com_nec_pasantia_blockbuster_in_blockbuster - 2019.01.22 at 11h 15m 09s.xml">
+      <configuration name="ar.com.nec.pasantia.blockbuster in blockbuster" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ClienteServiceTest - 2019.01.22 at 11h 20m 40s.xml">
+      <configuration name="ClienteServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ClienteServiceTest - 2019.01.22 at 11h 22m 11s.xml">
+      <configuration name="ClienteServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ar_com_nec_pasantia_blockbuster_in_blockbuster - 2019.01.23 at 09h 59m 21s.xml">
+      <configuration name="ar.com.nec.pasantia.blockbuster in blockbuster" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ar_com_nec_pasantia_blockbuster_in_blockbuster - 2019.01.23 at 10h 04m 24s.xml">
+      <configuration name="ar.com.nec.pasantia.blockbuster in blockbuster" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ar_com_nec_pasantia_blockbuster_in_blockbuster - 2019.01.23 at 10h 05m 14s.xml">
+      <configuration name="ar.com.nec.pasantia.blockbuster in blockbuster" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13943000" />
+    <option name="totallyTimeSpent" value="105201000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49913943" visible="true" weight="0.28317153" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49913943" visible="true" weight="0.23867314" />
+      <window_info id="Structure" order="1" sideWeight="0.5008606" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Persistence" order="3" sideWeight="0.5008606" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Web" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298731" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34717417" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39907727" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3298731" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3298731" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3298731" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3298731" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3298731" />
+      <window_info anchor="bottom" id="Spring" order="12" weight="0.3298731" />
+      <window_info anchor="bottom" id="Database Changes" order="13" weight="0.3298731" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.3298731" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.32928804" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32928804" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32928804" />
+      <window_info active="true" anchor="right" id="Coverage" order="10" side_tool="true" visible="true" weight="0.40614888" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49913943" visible="true" weight="0.34385112" />
       <window_info id="Structure" order="1" sideWeight="0.5008606" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" sideWeight="0.5008606" side_tool="true" weight="0.25" />
@@ -313,15 +572,15 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3298731" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32641292" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39907727" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3298731" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3298731" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3298731" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3298731" />
       <window_info anchor="bottom" id="Spring" order="12" weight="0.3298731" />
       <window_info anchor="bottom" id="Database Changes" order="13" weight="0.3298731" />
@@ -336,102 +595,116 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32928804" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/services/ClienteService.java</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/BlockbusterApplicationTests.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.3.RELEASE/spring-web-5.1.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/alquileresEditar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <caret line="64" column="86" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="86" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/usuarios.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="84" selection-start-line="14" selection-start-column="84" selection-end-line="14" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/ErrorHandlerController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/PersistenceContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="357">
+          <caret line="73" column="27" lean-forward="true" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/controller/GenerosControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+        <state relative-caret-position="168">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/AlquilerIdMismatchException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+        <state relative-caret-position="42">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/BlockbusterApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/DTO/PeliculasStockCantidadDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/PeliculaNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        <state relative-caret-position="147">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/ClienteNotFoundException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/peliculaEditar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="315">
+          <caret line="15" column="90" selection-start-line="15" selection-start-column="90" selection-end-line="15" selection-end-column="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/peliculas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="30" column="65" lean-forward="true" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#button#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#button#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/PeliculaIdMismatchException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/alquileresCrear.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        <state relative-caret-position="249">
+          <caret line="93" column="31" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
           <folding>
-            <element signature="e#177#178#0" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#pre#0;n#form#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#button#1;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/ClienteIdMismatchException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="42">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
             <element signature="e#159#160#0" expanded="true" />
@@ -440,134 +713,367 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/error.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/peliculaEditar.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/ClienteNotFoundException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/peliculas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="36" />
+        <state relative-caret-position="126">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="n#style#0;n#td#3;n#tr#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/PeliculasController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/ClienteFoundException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="31" />
+        <state relative-caret-position="105">
+          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <folding>
+            <element signature="e#156#157#0" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/PeliculasEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/SimpleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="294">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/GenerosEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/usuarioCrear.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state relative-caret-position="546">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/GenerosController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/exception/RestExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/alquileres.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="102" column="46" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#button#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#button#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#button#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#button#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/verCliente.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/services/GeneroService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/ClienteController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="59" column="39" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/AlquileresController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/controller/AlquileresControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-535">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/entities/AlquileresEntityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-598">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/entities/GenerosEntityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/entities/ClienteEntityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/PeliculasRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/services/PeliculasService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="75" column="53" lean-forward="true" selection-start-line="75" selection-start-column="53" selection-end-line="75" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/services/AlquileresServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/DTO/PeliculaCrearDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/services/PeliculasServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/ClienteEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="280">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/services/GeneroServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/AlquileresEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+        <state relative-caret-position="252">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding>
+            <element signature="e#2156#2157#0" expanded="true" />
+            <element signature="e#2192#2193#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/PeliculasRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/GenerosEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="126">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#870#1063#0" expanded="true" />
+            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/statements/InvokeMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/statements/RunBefores.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/Suite.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="e#2535#2536#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="226" column="16" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
+          <folding>
+            <element signature="e#2111#2112#0" expanded="true" />
+            <element signature="e#2155#2156#0" expanded="true" />
+            <element signature="e#5951#6086#0" expanded="true" />
+            <element signature="e#6085#6086#0" expanded="true" />
+            <element signature="e#6484#6648#0" expanded="true" />
+            <element signature="e#6647#6648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/statements/ExpectException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/repository/ClienteRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        <state relative-caret-position="210">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/DevolverController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/services/ClienteService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        <state relative-caret-position="483">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#1234#1235#0" expanded="true" />
+            <element signature="e#1293#1294#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/AlquileresController.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/entities/PeliculasEntityTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="42">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/SimpleController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/PeliculasController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="84">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/controller/ClienteController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/services/AlquileresService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+        <state relative-caret-position="-441">
+          <caret line="6" column="70" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/services/ClienteServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3795#3796#0" expanded="true" />
+            <element signature="e#3875#3876#0" expanded="true" />
+            <element signature="e#3921#3922#0" expanded="true" />
+            <element signature="e#4007#4008#0" expanded="true" />
+            <element signature="e#4061#4062#0" expanded="true" />
+            <element signature="e#4146#4147#0" expanded="true" />
+            <element signature="e#4247#4248#0" expanded="true" />
+            <element signature="e#4296#4297#0" expanded="true" />
+            <element signature="e#4694#4695#0" expanded="true" />
+            <element signature="e#4744#4745#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/usuarioEditar.html">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ar/com/nec/pasantia/blockbuster/services/MyServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        <state relative-caret-position="294">
+          <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/usuarios.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/nec/pasantia/blockbuster/entities/PeliculasEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+        <state relative-caret-position="315">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
           <folding>
-            <element signature="n#style#0;n#td#4;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1166#1167#0" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
+            <element signature="e#1251#1252#0" expanded="true" />
+            <element signature="e#1297#1298#0" expanded="true" />
+            <element signature="e#1401#1402#0" expanded="true" />
+            <element signature="e#1430#1431#0" expanded="true" />
+            <element signature="e#1474#1475#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="e#1555#1556#0" expanded="true" />
+            <element signature="e#1591#1592#0" expanded="true" />
+            <element signature="e#1625#1626#0" expanded="true" />
+            <element signature="e#1659#1660#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-924">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -668,5 +1174,12 @@
         </settings>
       </state>
     </states>
+  </component>
+  <component name="mavenExecuteGoalHistory">
+    <option value="$PROJECT_DIR$" />
+    <option value="sonar:sonar" />
+    <option value="org.sonarsource.scanner.maven:sonar-maven-plugin:3.4.0.905:sonar" />
+    <option value="clean install" />
+    <option value="clean verify sonar:sonar" />
   </component>
 </project>

@@ -15,6 +15,28 @@ public class AlquileresEntity {
     private PeliculasEntity peliculasByIdpelicula;
     private ClienteEntity clienteByIdcliente;
 
+    public AlquileresEntity(int idalquileres, Date fechaalquiler, Date fechadevuelto, int diasalquilado, boolean devuelto, PeliculasEntity peliculasByIdpelicula, ClienteEntity clienteByIdcliente) {
+        this.idalquileres = idalquileres;
+        this.fechaalquiler = fechaalquiler;
+        this.fechadevuelto = fechadevuelto;
+        this.diasalquilado = diasalquilado;
+        this.devuelto = devuelto;
+        this.peliculasByIdpelicula = peliculasByIdpelicula;
+        this.clienteByIdcliente = clienteByIdcliente;
+    }
+
+    public AlquileresEntity(Date fechaalquiler, Date fechadevuelto, int diasalquilado, boolean devuelto, PeliculasEntity peliculasByIdpelicula, ClienteEntity clienteByIdcliente) {
+        this.fechaalquiler = fechaalquiler;
+        this.fechadevuelto = fechadevuelto;
+        this.diasalquilado = diasalquilado;
+        this.devuelto = devuelto;
+        this.peliculasByIdpelicula = peliculasByIdpelicula;
+        this.clienteByIdcliente = clienteByIdcliente;
+    }
+
+    public AlquileresEntity() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idalquileres", nullable = false)

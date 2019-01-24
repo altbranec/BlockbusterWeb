@@ -4,6 +4,11 @@ import ar.com.nec.pasantia.blockbuster.entities.GenerosEntity;
 
 
 public class PeliculaCrearDTO {
+
+    private String nombre;
+    private GenerosEntity generosByIdgenero;
+    private int stock;
+
     public String getNombre() {
         return nombre;
     }
@@ -27,8 +32,4 @@ public class PeliculaCrearDTO {
     public void setStock(int stock) {
         this.stock = stock;
     }
-
-    private String nombre;
-    private GenerosEntity generosByIdgenero;
-    private int stock;
 }

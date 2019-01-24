@@ -13,6 +13,22 @@ public class ClienteEntity {
     private Collection<AlquileresEntity> alquileresByIdcliente;
     private boolean activo = true;
 
+    public ClienteEntity(int idcliente, String nombre, String dni, boolean activo) {
+        this.idcliente = idcliente;
+        this.nombre = nombre;
+        this.dni = dni;
+        this.activo = activo;
+    }
+
+    public ClienteEntity() {
+    }
+
+    public ClienteEntity(String nombre, String dni, boolean activo) {
+        this.nombre = nombre;
+        this.dni = dni;
+        this.activo = activo;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idcliente", nullable = false)
@@ -46,8 +62,9 @@ public class ClienteEntity {
 
     @Basic
     @Column(name = "activo", nullable = false)
-
-    public boolean getActivo() { return activo; }
+    public boolean getActivo() {
+        return activo;
+    }
 
     public void setActivo(boolean activo) {
         this.activo = activo;

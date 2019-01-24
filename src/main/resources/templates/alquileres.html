@@ -42,6 +42,9 @@
             <td th:id="${alquileres.clienteByIdcliente.idcliente}" class="button1" name="vercliente" style="cursor:pointer"
                 OnClick="javascipt:vercliente(id)">Ver Cliente
             </td>
+            <td th:id="${alquileres.peliculasByIdpelicula.idpeliculas}" class="button1" name="verpelicula" style="cursor:pointer"
+                OnClick="javascipt:verpelicula(id)">Ver Pelicula
+            </td>
         </tr>
     </tbody>
     </table>
@@ -97,6 +100,10 @@
     }
 
     function vercliente(id) {
-        window.location = "alquileres/verCliente?idcliente=" + id;
+        window.location = "usuarios/verCliente?idcliente=" + id;
+    }
+
+    function verpelicula(id) {
+        window.location = "peliculas/verPelicula?idpeliculas=" + id;
     }
 </script>

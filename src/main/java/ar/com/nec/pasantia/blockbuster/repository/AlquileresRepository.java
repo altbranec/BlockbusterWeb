@@ -10,10 +10,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-public interface AlquilerRepository extends CrudRepository<AlquileresEntity, Integer> {
+public interface AlquileresRepository extends CrudRepository<AlquileresEntity, Integer> {
     List<AlquileresEntity> findAlquileresEntityByDevueltoIsFalseAndFechadevueltoIsBefore(Date hoy);
     List<AlquileresEntity> findAlquileresEntityByDevueltoIsFalse();
-    List<AlquileresEntity> findAlquileresEntityByClienteByIdclienteIsAndDevueltoIsFalse(Optional<ClienteEntity> client);
+    List<AlquileresEntity> findAlquileresEntityByClienteByIdclienteIsAndDevueltoIsFalse(ClienteEntity client);
     boolean existsAlquileresEntityByClienteByIdclienteAndDevueltoIsFalse(ClienteEntity clienteEntity);
 
 }

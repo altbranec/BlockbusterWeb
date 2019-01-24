@@ -25,19 +25,6 @@
 </button>
 </body>
 </html>
-
-<!--<script>
-    function validarDni(inputtxt) {
-        var dniAct = /^\d{8}$/;
-        if (inputtxt.value.match(dniAct)) {
-            return true;
-        } else {
-            alert("DNI invalido");
-            return false;
-        }
-    }
-</script>-->
-
 <script>
     $("#crearForm").submit(function (event) {
         event.preventDefault();
@@ -59,9 +46,7 @@
             error: function (xhr, ajaxOptions, thrownError) {
                 switch (xhr.status) {
                     case 409:
-                        alert("El usuario ya existe")
-                    case 500:
-                        alert("El usuario ya existe")
+                        alert(xhr.responseText)
                 }
             },
         });

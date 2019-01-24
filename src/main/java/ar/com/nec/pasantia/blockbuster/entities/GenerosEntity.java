@@ -11,6 +11,19 @@ public class GenerosEntity {
     private String nombre;
     private Collection<PeliculasEntity> peliculasByIdgeneros;
 
+    public GenerosEntity(int idgeneros, String nombre) {
+        this.idgeneros = idgeneros;
+        this.nombre = nombre;
+    }
+
+    public GenerosEntity(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public GenerosEntity() {
+    }
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idgeneros", nullable = false)
